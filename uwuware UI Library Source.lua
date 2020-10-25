@@ -825,11 +825,10 @@ local function createList(option, parent, holder)
 			end
 		end)
 	end
---[[
+	
 	if not table.find(option.values, option.value) then
 		option:AddValue(option.value)
 	end
-	]]--
 	
 	for _, value in next, option.values do
 		option:AddValue(tostring(value))
