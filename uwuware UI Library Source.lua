@@ -1532,7 +1532,7 @@ local function getFnctions(parent)
 		option = typeof(option) == "table" and option or {}
 		option.text = tostring(option.text)
 		option.values = typeof(option.values) == "table" and option.values or {}
-		option.value = tostring(option.value or option.values[1] or "")
+		option.value = tostring(option.value or option.values[1])
 		option.callback = typeof(option.callback) == "function" and option.callback or function() end
 		option.open = false
 		option.type = "list"
