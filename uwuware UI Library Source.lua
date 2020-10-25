@@ -794,6 +794,59 @@ local function createList(option, parent, holder)
 			TextXAlignment = Enum.TextXAlignment.Left,
 			Parent = content
 		})
+
+		for _, value in next, option.values do
+			option:AddValue(tostring(value))
+		end
+		
+		function option:RemoveValue(value)
+			for _,label in next, content:GetChildren() do
+				if label:IsA"TextLabel" and label.Text == "	" .. value then
+					label:Destroy()
+					valueCount = valueCount - 1
+					break
+				end
+			end
+			if self.value == value then
+				self:SetValue("")
+			end
+		end
+	
+		function options:Refresh(table)
+			for _,deleted in pairs(table) do
+				option:RemoveValue(deleted)
+			end
+			for _,added in pairs(table) do
+				option:AddValue(tostring(added))
+			end
+		end
+		
+		function option:SetValue(value)
+			library.flags[self.flag] = tostring(value)
+			self.value = tostring(value)
+			listvalue.Text = self.value
+			self.callback(value)
+		end
+		
+		function option:Close()
+			library.activePopup = nil
+			self.open = false
+			content.ScrollBarThickness = 0
+			local position = main.AbsolutePosition
+			tweenService:Create(round, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = inContact and Color3.fromRGB(60, 60, 60) or Color3.fromRGB(40, 40, 40)}):Play()
+			tweenService:Create(self.mainHolder, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1, Position = UDim2.new(0, position.X - 5, 0, position.Y -10)}):Play()
+			for _,label in next, content:GetChildren() do
+				if label:IsA"TextLabel" then
+					tweenService:Create(label, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+				end
+			end
+			wait(0.3)
+			--delay(0.3, function()
+				if not self.open then
+					self.mainHolder.Visible = false
+				end
+			--end)
+		end
 		
 		local inContact
 		local clicking
@@ -803,11 +856,13 @@ local function createList(option, parent, holder)
 				tweenService:Create(label, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(10, 10, 10)}):Play()
 				self:SetValue(value)
 				self:Close()
+				options:Refresh(options.values)
 			end
 			if input.UserInputType == Enum.UserInputType.MouseMovement then
 				inContact = true
 				if not clicking then
 					tweenService:Create(label, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(20, 20, 20)}):Play()
+					options:Refresh(options.values)
 				end
 			end
 		end)
@@ -816,63 +871,23 @@ local function createList(option, parent, holder)
 			if input.UserInputType == Enum.UserInputType.MouseButton1 then
 				clicking = false
 				tweenService:Create(label, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = inContact and Color3.fromRGB(20, 20, 20) or Color3.fromRGB(30, 30, 30)}):Play()
+				options:Refresh(options.values)
 			end
 			if input.UserInputType == Enum.UserInputType.MouseMovement then
 				inContact = false
 				if not clicking then
 					tweenService:Create(label, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+					options:Refresh(options.values)
 				end
 			end
 		end)
 	end
-
+	
+	--[[
 	if not table.find(option.values, option.value) then
 		option:AddValue(option.value)
 	end
-	
-	for _, value in next, option.values do
-		option:AddValue(tostring(value))
-	end
-	
-	function option:RemoveValue(value)
-		for _,label in next, content:GetChildren() do
-			if label:IsA"TextLabel" and label.Text == "	" .. value then
-				label:Destroy()
-				valueCount = valueCount - 1
-				break
-			end
-		end
-		if self.value == value then
-			self:SetValue("")
-		end
-	end
-	
-	function option:SetValue(value)
-		library.flags[self.flag] = tostring(value)
-		self.value = tostring(value)
-		listvalue.Text = self.value
-		self.callback(value)
-	end
-	
-	function option:Close()
-		library.activePopup = nil
-		self.open = false
-		content.ScrollBarThickness = 0
-		local position = main.AbsolutePosition
-		tweenService:Create(round, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = inContact and Color3.fromRGB(60, 60, 60) or Color3.fromRGB(40, 40, 40)}):Play()
-		tweenService:Create(self.mainHolder, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1, Position = UDim2.new(0, position.X - 5, 0, position.Y -10)}):Play()
-		for _,label in next, content:GetChildren() do
-			if label:IsA"TextLabel" then
-				tweenService:Create(label, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
-			end
-		end
-		wait(0.3)
-		--delay(0.3, function()
-			if not self.open then
-				self.mainHolder.Visible = false
-			end
-		--end)
-	end
+	]]--
 
 	return option
 end
