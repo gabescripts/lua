@@ -815,15 +815,6 @@ local function createList(option, parent, holder)
 				self:SetValue("")
 			end
 		end
-	
-		function option:Refresh(table)
-			for _,deleted in pairs(table) do
-				option:RemoveValue(deleted)
-			end
-			for _,added in pairs(table) do
-				option:AddValue(tostring(added))
-			end
-		end
 		
 		function option:SetValue(value)
 			library.flags[self.flag] = tostring(value)
@@ -860,13 +851,12 @@ local function createList(option, parent, holder)
 				tweenService:Create(label, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(10, 10, 10)}):Play()
 				self:SetValue(value)
 				self:Close()
-				self:Refresh(self.values)
 			end
 			if input.UserInputType == Enum.UserInputType.MouseMovement then
 				inContact = true
 				if not clicking then
 					tweenService:Create(label, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(20, 20, 20)}):Play()
-					self:Refresh(self.values)
+
 				end
 			end
 		end)
@@ -875,13 +865,11 @@ local function createList(option, parent, holder)
 			if input.UserInputType == Enum.UserInputType.MouseButton1 then
 				clicking = false
 				tweenService:Create(label, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = inContact and Color3.fromRGB(20, 20, 20) or Color3.fromRGB(30, 30, 30)}):Play()
-				self:Refresh(self.values)
 			end
 			if input.UserInputType == Enum.UserInputType.MouseMovement then
 				inContact = false
 				if not clicking then
 					tweenService:Create(label, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
-					self:Refresh(self.values)
 				end
 			end
 		end)
