@@ -1,12 +1,10 @@
 local library = {flags = {}, windows = {}, open = true}
 
---Services
-local runService = game:GetService"RunService"
-local tweenService = game:GetService"TweenService"
-local textService = game:GetService"TextService"
-local inputService = game:GetService"UserInputService"
+local runService = game:GetService("RunService")
+local tweenService = game:GetService("TweenService")
+local textService = game:GetService("TextService")
+local inputService = game:GetService("UserInputService")
 
---Locals
 local dragging, dragInput, dragStart, startPos, dragObject
 
 local blacklistedKeys = { --add or remove keys if you find the need to
@@ -16,7 +14,6 @@ local whitelistedMouseinputs = { --add or remove mouse inputs if you find the ne
 	Enum.UserInputType.MouseButton1,Enum.UserInputType.MouseButton2,Enum.UserInputType.MouseButton3
 }
 
---Functions
 local function round(num, bracket)
 	bracket = bracket or 1
 	local a = math.floor(num/bracket + (math.sign(num) * 0.5)) * bracket
