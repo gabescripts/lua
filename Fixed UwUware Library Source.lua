@@ -191,6 +191,10 @@ local function createLabel(option, parent)
 		TextXAlignment = Enum.TextXAlignment.Left,
 		Parent = parent.content
 	})
+
+	function option:SetText(text)
+		main.Text = " " .. tostring(text)
+	end
 	
 	setmetatable(option, {__newindex = function(t, i, v)
 		if i == "Text" then
