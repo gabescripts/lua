@@ -262,6 +262,7 @@ function SolarisLib:New(Config)
         SettingsFrame.Parent = MFrame
         SFrame.TopBar.CloseBtn.MouseEnter:Connect(function() TweenService:Create(SFrame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}):Play() end)
         SFrame.TopBar.CloseBtn.MouseLeave:Connect(function() TweenService:Create(SFrame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
+        
         SettingsBtn.MouseButton1Click:Connect(function()
             SettingsFrame.Visible = not SettingsFrame.Visible
             MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = false 
@@ -277,7 +278,6 @@ function SolarisLib:New(Config)
             end
             writefile(Config.FolderToSave .. "/settings.txt", tostring(http:JSONEncode(content)))
         end    
-
         
         spawn(function()
             while wait() do
@@ -295,7 +295,7 @@ function SolarisLib:New(Config)
             local Container = ContainerPreset:Clone()
             Tab.Parent = SFrame.TabHolder
             Tab.Text = text
-            Tab.Size = UDim2.new(0,Tab.TextBounds.X,1,0)
+            Tab.Size = UDim2.new(0, Tab.TextBounds.X, 1, 0)
             Container.Parent = SFrame.ContainerFolder
             Container.Visible = false
 
@@ -475,7 +475,6 @@ function SolarisLib:New(Config)
         appearance:Dropdown("Theme", "The look of the user interface", {"Default", "Discord", "Red", "Green", "Blue"}, "Default", "Theme")
 
     end 
-    MusicConstructor()
     SettingsConstructor()
 
     local function OpenTabMenu()
@@ -507,7 +506,10 @@ function SolarisLib:New(Config)
     MFrame.TopBar.ButtonHolder.MenuBtn.MouseLeave:Connect(function() TweenService:Create(MFrame.TopBar.ButtonHolder.MenuBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
     MFrame.TopBar.TabListBtn.MouseEnter:Connect(function() TweenService:Create(MFrame.TopBar.TabListBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}):Play() end)
     MFrame.TopBar.TabListBtn.MouseLeave:Connect(function() TweenService:Create(MFrame.TopBar.TabListBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
-    MFrame.TopBar.ButtonHolder.MenuBtn.MouseButton1Click:Connect(function() MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = not MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible end)
+    MFrame.TopBar.ButtonHolder.MenuBtn.MouseButton1Click:Connect(function() 
+        MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = not MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible 
+        SettingsFrame.Visible = not SettingsFrame.Visible 
+    end)
 
     MFrame.TopBar.ButtonHolder.CloseBtn.MouseButton1Click:Connect(function()
         uitoggled = not uitoggled
