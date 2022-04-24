@@ -244,7 +244,7 @@ function SolarisLib:New(Config)
     local MFrame = MainUI.MainFrame
     MainUI.Parent = Solaris
     MFrame.TopBar.TopFrameTitle.Text = Config.Name
-    MakeDraggable(MFrame.TopBar, MainUI) 
+    MakeDraggable(MFrame.TopBar, MainUI)
     local oldScript = script
 
     local MenuBtnPreset = game:GetObjects("rbxassetid://7037141226")[1]
@@ -260,6 +260,8 @@ function SolarisLib:New(Config)
         local fs = true
         local SFrame = SettingsFrame.Main
         SettingsFrame.Parent = MFrame
+        MakeDraggable(SettingsFrame, MainUI)
+
         SFrame.TopBar.CloseBtn.MouseEnter:Connect(function() TweenService:Create(SFrame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}):Play() end)
         SFrame.TopBar.CloseBtn.MouseLeave:Connect(function() TweenService:Create(SFrame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
         
@@ -268,11 +270,6 @@ function SolarisLib:New(Config)
             MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = false 
         end)
 
-        SettingsBtn.MouseButton1Click:Connect(function()
-            SettingsFrame.Visible = not SettingsFrame.Visible
-            MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = false 
-        end)
-        
         SFrame.TopBar.CloseBtn.MouseButton1Click:Connect(function()
             SettingsFrame.Visible = false
         end)
