@@ -48,4 +48,4 @@ Services.RunService.Heartbeat:Connect(function()
   end
 end)
 
-print("Executed Autofarm!")
+print("Executed!")
