@@ -248,155 +248,12 @@ function SolarisLib:New(Config)
     local oldScript = script
 
     local MenuBtnPreset = game:GetObjects("rbxassetid://7037141226")[1]
-    local MusicBtn = MenuBtnPreset:Clone()
-    MusicBtn.Parent = MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame
-    MusicBtn.Position = UDim2.new(0,0,0,5)
-    MusicBtn.Text = "Music"
-    MusicBtn.MouseEnter:Connect(function() TweenService:Create(MusicBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0}):Play() end)
-    MusicBtn.MouseLeave:Connect(function() TweenService:Create(MusicBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0.4}):Play() end)
     local SettingsBtn = MenuBtnPreset:Clone()
     SettingsBtn.Parent = MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame
-    SettingsBtn.Position = UDim2.new(0,0,0,25)
+    SettingsBtn.Position = UDim2.new(0,0,0,5)
     SettingsBtn.Text = "Settings"
     SettingsBtn.MouseEnter:Connect(function() TweenService:Create(SettingsBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0}):Play() end)
     SettingsBtn.MouseLeave:Connect(function() TweenService:Create(SettingsBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0.4}):Play() end)
-
-
-    function MusicConstructor()
-        local abuttonhold = false
-        local playing = false
-        local MarketplaceService = game:GetService("MarketplaceService")
-        local MusicFrame, MusicPreset = game:GetObjects("rbxassetid://7296373622")[1], game:GetObjects("rbxassetid://7296615234")[1]
-        MusicFrame.Parent = Solaris
-        MusicFrame.ZIndex = 5
-        MusicFrame.Visible = SolarisLib.Settings.ShowMusicOnLaunch
-        MusicFrame.Frame.Title.Text = "Not Playing"
-        MusicFrame.Frame.Progress.ProgressFrame.Size = UDim2.new(0,0,1,0)
-        MusicFrame.Frame.AddBtn.AutoButtonColor = false
-
-        MakeDraggable(MusicFrame.Frame.TopBar,MusicFrame)
-        MusicFrame.Frame.TopBar.CloseBtn.MouseButton1Click:Connect(function()
-            MusicFrame.Visible = false
-        end)
-        MusicFrame.Frame.TopBar.CloseBtn.MouseEnter:Connect(function() TweenService:Create(MusicFrame.Frame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}):Play() end)
-        MusicFrame.Frame.TopBar.CloseBtn.MouseLeave:Connect(function() TweenService:Create(MusicFrame.Frame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
-        MusicBtn.MouseButton1Click:Connect(function()
-            MusicFrame.Visible = not MusicFrame.Visible
-            MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = false 
-        end)
-
-        local Sound = Instance.new("Sound")
-        Sound.Name = "Sound"
-        Sound.Parent = MusicFrame
-        Sound.Volume = 3
-        Sound:Stop()
-
-        local Sounds = {}
-        if not isfile(Config.FolderToSave .. "/music.txt") then writefile(Config.FolderToSave .. "/music.txt", tostring(http:JSONEncode({}))) end
-        Sounds = http:JSONDecode(readfile(Config.FolderToSave .. "/music.txt"))
-
-        function Save()
-            local content = {}
-            for i,v in pairs(Sounds) do
-                content[i] = v
-            end
-            writefile(Config.FolderToSave .. "/music.txt", tostring(http:JSONEncode(content)))
-        end    
-
-        local function PlaySong(id, title)
-            Sound:Stop()
-            playing = true
-            Sound.SoundId = "rbxassetid://" .. id
-            Sound:Resume()
-            MusicFrame.Frame.Play.Image = "http://www.roblox.com/asset/?id=6026663719"
-            MusicFrame.Frame.Title.Text = title
-        end    
-
-        local function RefreshList(list)
-            for i,v in next, MusicFrame.Frame.MusicList.Scroll:GetChildren() do
-                if v.Name == "Btn" then
-                    v:Destroy()
-                end    
-            end
-            for i,v in next, list do
-                local success, info = pcall(MarketplaceService.GetProductInfo, MarketplaceService, v)
-                if success and info.AssetTypeId == 3 then
-                    local Btn = MusicPreset:Clone()
-                    Btn.Parent = MusicFrame.Frame.MusicList.Scroll
-                    Btn.Title.Text = info.Name
-
-                    Btn.MouseButton1Click:Connect(function()
-                        PlaySong(v, info.Name)
-                    end)
-
-                    Btn.Delete.MouseButton1Click:Connect(function()
-                        for g,c in next, Sounds do
-                            if c == v then
-                                table.remove(Sounds, g)
-                            end    
-                        end    
-                        Save()
-                        Btn:Destroy()   
-                    end)
-                end
-            end    
-        end 
-        
-        MusicFrame.Frame.Play.MouseButton1Click:Connect(function()
-            playing = not playing
-            if playing then Sound:Pause() else Sound:Resume() end
-            MusicFrame.Frame.Play.Image = playing and "http://www.roblox.com/asset/?id=6026663699" or "http://www.roblox.com/asset/?id=6026663719"
-        end)
-
-        MusicFrame.Frame.AddBtn.MouseButton1Click:Connect(function()
-            local id = MusicFrame.Frame.AddSong.Text
-            if not table.find(Sounds, id) then
-                table.insert(Sounds, id)
-                Save()
-                RefreshList(Sounds)
-            end    
-        end)
-
-        MusicFrame.Frame.AddBtn.MouseEnter:Connect(function()
-            abuttonhold = true
-        end)
-
-        MusicFrame.Frame.AddBtn.MouseLeave:Connect(function()
-            abuttonhold = false
-        end)
-
-        RefreshList(Sounds)
-
-        game:GetService("RunService").RenderStepped:Connect(function()
-            local time = math.floor(Sound.TimePosition)
-            local timesecs = time % 60
-            local timemins = math.floor(time / 60)
-            if string.len(timesecs) < 2 then timesecs = "0" .. timesecs end
-            if string.len(timemins) < 2 then timemins = "0" .. timemins end
-            local timemax = math.floor(Sound.TimeLength)
-            local timemaxsecs = timemax % 60
-            local timemaxmins = math.floor(timemax / 60)
-            if string.len(timemaxsecs) < 2 then timemaxsecs = "0" .. timemaxsecs end
-            if string.len(timemaxmins) < 2 then timemaxmins = "0" .. timemaxmins end
-            MusicFrame.Frame.Timer1.Text = timemins .. ":" .. timesecs
-            MusicFrame.Frame.Timer2.Text = timemaxmins .. ":" .. timemaxsecs
-            MusicFrame.Frame.Progress.ProgressFrame.Size = UDim2.new(Sound.TimePosition / Sound.TimeLength,0,1,0)
-        end)
-
-        
-        spawn(function()
-            while wait() do
-                MusicFrame.Frame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].MainFrame
-                MusicFrame.Frame.TopBar.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
-                MusicFrame.Frame.TopBar.CloseBtn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-                MusicFrame.Frame.MusicList.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
-                MusicFrame.Frame.AddBtn.BackgroundColor3 = abuttonhold and SolarisLib.Themes[SolarisLib.Settings.Theme].ButtonHold or SolarisLib.Themes[SolarisLib.Settings.Theme].Button
-                MusicFrame.Frame.Progress.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Slider
-                MusicFrame.Frame.Progress.ProgressFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderInc
-                MusicFrame.Frame.AddSong.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Textbox
-            end
-        end)
-    end  
 
     function SettingsConstructor()
         local Settings, SettingsFrame, TabPreset, ContainerPreset, TogglePreset, BindPreset, DropdownPreset, OptionPreset = {}, game:GetObjects("rbxassetid://7167491516")[1], game:GetObjects("rbxassetid://7177524915")[1], game:GetObjects("rbxassetid://7203599409")[1], game:GetObjects("rbxassetid://7208643984")[1], game:GetObjects("rbxassetid://7219277948")[1], game:GetObjects("rbxassetid://7435055269")[1], game:GetObjects("rbxassetid://7435032496")[1]
@@ -730,7 +587,6 @@ function SolarisLib:New(Config)
         end
         writefile(Config.FolderToSave .. "/configs/" .. name .. ".txt", tostring(http:JSONEncode(content)))
     end
-    
 
     local TabHolder = {}
     function TabHolder:Tab(text)
@@ -761,8 +617,6 @@ function SolarisLib:New(Config)
                 Container.CanvasSize = UDim2.new(0,0,0,Container.UIListLayout.AbsoluteContentSize.Y + 26)
             end
         end)
-
-
         
         Tab.MouseButton1Click:Connect(function()
             for i,v in next, MFrame.TabMenu.Menu.Holder:GetChildren() do
