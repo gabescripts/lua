@@ -263,10 +263,16 @@ function SolarisLib:New(Config)
         SFrame.TopBar.CloseBtn.MouseEnter:Connect(function() TweenService:Create(SFrame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}):Play() end)
         SFrame.TopBar.CloseBtn.MouseLeave:Connect(function() TweenService:Create(SFrame.TopBar.CloseBtn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
         
+        MFrame.TopBar.ButtonHolder.MenuBtn.MouseButton1Click:Connect(function() 
+            SettingsFrame.Visible = not SettingsFrame.Visible
+            MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = false 
+        end)
+
         SettingsBtn.MouseButton1Click:Connect(function()
             SettingsFrame.Visible = not SettingsFrame.Visible
             MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = false 
         end)
+        
         SFrame.TopBar.CloseBtn.MouseButton1Click:Connect(function()
             SettingsFrame.Visible = false
         end)
@@ -508,7 +514,6 @@ function SolarisLib:New(Config)
     MFrame.TopBar.TabListBtn.MouseLeave:Connect(function() TweenService:Create(MFrame.TopBar.TabListBtn,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0.4}):Play() end)
     MFrame.TopBar.ButtonHolder.MenuBtn.MouseButton1Click:Connect(function() 
         MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible = not MFrame.TopBar.ButtonHolder.MenuBtn.MenuFrame.Visible 
-        SettingsFrame.Visible = not SettingsFrame.Visible 
     end)
 
     MFrame.TopBar.ButtonHolder.CloseBtn.MouseButton1Click:Connect(function()
