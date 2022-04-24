@@ -1001,11 +1001,11 @@ function SolarisLib:New(Config)
                         Option.MouseButton1Click:Connect(function()
                             if table.find(Dropdown.Value, option) then				
 								table.remove(Dropdown.Value, table.find(Dropdown.Value, option))
-								DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
+								DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
 								callback(Dropdown.Value)
 							else
 								table.insert(Dropdown.Value, option)
-								DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
+								DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
 								callback(Dropdown.Value)
 							end
                             Ripple(Option)
@@ -1040,7 +1040,7 @@ function SolarisLib:New(Config)
 
                 function Dropdown:Set(val)
 					Dropdown.Value = val
-                    DropMain.Btn.Title.Text = text .. " - " .. table.concat(Dropdown.Value, ", ")
+                    DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
 					return callback(Dropdown.Value)
 				end
 

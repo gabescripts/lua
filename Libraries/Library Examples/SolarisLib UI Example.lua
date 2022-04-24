@@ -26,7 +26,7 @@ for _, player in next, Services.Players:GetPlayers() do
   end
 end
 table.sort(PlayerList, function(a, b) return a < b end)
-local PlayerDropdown = Section1:Dropdown("Select Player: ", PlayerList, PlayerList[1], "Dropdown", function(t)
+local PlayerDropdown = Section1:Dropdown("Select Player", PlayerList, PlayerList[1], "Dropdown", function(t)
   print(t)
 end)
 
