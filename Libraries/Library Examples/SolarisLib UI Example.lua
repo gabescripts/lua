@@ -1,5 +1,13 @@
+do pcall(function()
+  for _,sg in pairs(game:GetService("CoreGui"):GetChildren()) do
+    if sg.Name == "ScreenGui" then
+      sg:Remove()
+    end
+  end
+end) end
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GabrasticYT/Roblox/Exploit-Related/Libraries/SolarisLib%20UI%20Source.lua"))()
-local Window = Library:New({Name = "SolarisLib", FolderToSave = "SolarisLibStuff"})
+local Window = Library:New({Name = "Game Name", FolderToSave = "SolarisLibStuff"})
 
 local Tab1 = Window:Tab("Tab 1")
 local Section1 = Tab1:Section("Toggles Section")
