@@ -244,7 +244,6 @@ function SolarisLib:New(Config)
     local MFrame = MainUI.MainFrame
     MainUI.Parent = Solaris
     MFrame.TopBar.TopFrameTitle.Text = Config.Name
-    MFrame.TopBar.TopFrameTitle.TextXAlignment = Enum.TextXAlignment.Center
     MakeDraggable(MFrame.TopBar, MainUI) 
     local oldScript = script
 
