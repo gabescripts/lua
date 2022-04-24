@@ -159,10 +159,7 @@ local SolarisLib = {
     CurrentTab
 }
 
-
-
 local MainUI = game:GetObjects("rbxassetid://7835727566")[1]
-print("SolarisLib Loaded!")
 local function MakeDraggable(topbarobject, object) 
     pcall(function()
 		local dragging, dragInput, mousePos, framePos = false
@@ -928,7 +925,7 @@ function SolarisLib:New(Config)
 
                         Option.MouseButton1Click:Connect(function()
                             Dropdown.Value = option
-                            DropMain.Btn.Title.Text = text .. " - " .. option
+                            DropMain.Btn.Title.Text = text .. ": " .. option
                             Ripple(Option)
                             return callback(Dropdown.Value)
                         end)
@@ -962,7 +959,7 @@ function SolarisLib:New(Config)
 
                 function Dropdown:Set(val)
 					Dropdown.Value = val
-                    DropMain.Btn.Title.Text = text .. " - " .. val
+                    DropMain.Btn.Title.Text = text .. ": " .. val
 					return callback(Dropdown.Value)
 				end
 
