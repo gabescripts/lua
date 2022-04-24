@@ -47,3 +47,5 @@ Services.RunService.Heartbeat:Connect(function()
     end
   end
 end)
+
+print("Executed")
