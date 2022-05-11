@@ -630,28 +630,27 @@ function SolarisLib:New(Config)
                 end
             end)
         end)
-        
-        pcall(function()
-            Tab.MouseButton1Click:Connect(function()
-                for i,v in next, MFrame.TabMenu.Menu.Holder:GetChildren() do
-                    if v:IsA("TextButton") then
-                        TweenService:Create(v,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0.4}):Play() 
-                        TweenService:Create(v,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}):Play() 
-                        TweenService:Create(v.UIPadding,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{PaddingLeft = UDim.new(0,5)}):Play() 
-                    end    
-                    TweenService:Create(Tab,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0}):Play() 
-                    TweenService:Create(Tab,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}):Play() 
-                    TweenService:Create(Tab.UIPadding,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{PaddingLeft = UDim.new(0,10)}):Play() 
-                end   
-                for i,v in next, MFrame.ContainerFolder:GetChildren() do
-                    if v.Name == "Container" then
-                        v.Visible = false
-                    end    
-                    Container.Visible = true
-                end
-                tabtoggledname = Tab.Name
-                CloseTabMenu()
-            end)
+
+        repeat task.wait() until Tab
+        Tab.MouseButton1Click:Connect(function()
+            for i,v in next, MFrame.TabMenu.Menu.Holder:GetChildren() do
+                if v:IsA("TextButton") then
+                    TweenService:Create(v,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0.4}):Play() 
+                    TweenService:Create(v,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}):Play() 
+                    TweenService:Create(v.UIPadding,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{PaddingLeft = UDim.new(0,5)}):Play() 
+                end    
+                TweenService:Create(Tab,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0}):Play() 
+                TweenService:Create(Tab,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}):Play() 
+                TweenService:Create(Tab.UIPadding,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{PaddingLeft = UDim.new(0,10)}):Play() 
+            end   
+            for i,v in next, MFrame.ContainerFolder:GetChildren() do
+                if v.Name == "Container" then
+                    v.Visible = false
+                end    
+                Container.Visible = true
+            end
+            tabtoggledname = Tab.Name
+            CloseTabMenu()
         end)
 
 
