@@ -1014,21 +1014,23 @@ function SolarisLib:New(Config)
             end
             function ItemHold:Label(text)
                 local Label, LabelFrame = {}, game:GetObjects("rbxassetid://7032552322")[1]
-                LabelFrame.Parent = Section
-                LabelFrame.Title.Text = text
-                LabelFrame.Name = text .. "element"
-
-                function Label:Set(tochange)
-                    LabelFrame.Title.Text = tochange
+                pcall(function()
+                    LabelFrame.Parent = Section
+                    LabelFrame.Title.Text = text
                     LabelFrame.Name = text .. "element"
-                end    
-
-                
-                spawn(function()
-                    while wait() do
-                       LabelFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Label
-                       LabelFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-                    end
+    
+                    function Label:Set(tochange)
+                        LabelFrame.Title.Text = tochange
+                        LabelFrame.Name = text .. "element"
+                    end    
+    
+                    
+                    spawn(function()
+                        while wait() do
+                           LabelFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Label
+                           LabelFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+                        end
+                    end)
                 end)
 
                 return Label
