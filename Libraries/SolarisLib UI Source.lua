@@ -459,8 +459,8 @@ function SolarisLib:New(Config)
                     end   
                 end    
 
-                pcall(function()
-                    spawn(function()
+                spawn(function()
+                    pcall(function()
                         while wait() do
                             Dropdown.Main.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
                             Dropdown.Main.Holder.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
