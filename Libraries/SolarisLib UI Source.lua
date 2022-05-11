@@ -602,25 +602,27 @@ function SolarisLib:New(Config)
 
     local TabHolder = {}
     function TabHolder:Tab(text)
-        pcall(function()
-            local Tab = TabPreset:Clone()
-            Tab.AutoButtonColor = false
-            Tab.Parent = MFrame.TabMenu.Menu.Holder
-            Tab.Text =  text
-            Tab.TextSize = 14
-    
-            local Container =  ContainerPreset:Clone()
-            Container.Parent = MFrame.ContainerFolder
-            Container.Visible = false
-    
-            if fs == false then
-                fs = true
-                Container.Visible = true
-                Tab.UIPadding.PaddingLeft = UDim.new(0,10)
-                Tab.TextTransparency = 0
-                Tab.BackgroundTransparency = 0  
-                SolarisLib.CurrentTab = Container  
-            end    
+        spawn(function()
+            pcall(function()
+                local Tab = TabPreset:Clone()
+                Tab.AutoButtonColor = false
+                Tab.Parent = MFrame.TabMenu.Menu.Holder
+                Tab.Text =  text
+                Tab.TextSize = 14
+        
+                local Container =  ContainerPreset:Clone()
+                Container.Parent = MFrame.ContainerFolder
+                Container.Visible = false
+        
+                if fs == false then
+                    fs = true
+                    Container.Visible = true
+                    Tab.UIPadding.PaddingLeft = UDim.new(0,10)
+                    Tab.TextTransparency = 0
+                    Tab.BackgroundTransparency = 0  
+                    SolarisLib.CurrentTab = Container  
+                end    
+            end)
         end)
 
         spawn(function()
