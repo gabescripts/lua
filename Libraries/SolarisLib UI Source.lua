@@ -788,7 +788,7 @@ function SolarisLib:New(Config)
                             return callback(Dropdown.Value)
                         end)
 
-                        spawn(function()
+                        pcall(function()
                             while wait() do
                                Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
                                DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
