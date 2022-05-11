@@ -285,6 +285,7 @@ function SolarisLib:New(Config)
         spawn(function()
             pcall(function()
                 while wait() do
+                    repeat task.wait() until SFrame:FindFirstChild("TopBar")
                     SFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].MainFrame
                     SFrame.TopBar.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
                     SFrame.TopBar.CloseBtn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -404,6 +405,7 @@ function SolarisLib:New(Config)
                 spawn(function()
                     pcall(function()
                         while wait() do
+                            repeat task.wait() until Bind:FindFirstChild("Desc")
                             Bind.Desc.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                             Bind.BText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                             Bind.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -600,25 +602,26 @@ function SolarisLib:New(Config)
 
     local TabHolder = {}
     function TabHolder:Tab(text)
-        local Tab = TabPreset:Clone()
-        Tab.AutoButtonColor = false
-        Tab.Parent = MFrame.TabMenu.Menu.Holder
-        Tab.Text =  text
-        Tab.TextSize = 14
-
-
-        local Container =  ContainerPreset:Clone()
-        Container.Parent = MFrame.ContainerFolder
-        Container.Visible = false
-
-        if fs == false then
-            fs = true
-            Container.Visible = true
-            Tab.UIPadding.PaddingLeft = UDim.new(0,10)
-            Tab.TextTransparency = 0
-            Tab.BackgroundTransparency = 0  
-            SolarisLib.CurrentTab = Container  
-        end    
+        pcall(function()
+            local Tab = TabPreset:Clone()
+            Tab.AutoButtonColor = false
+            Tab.Parent = MFrame.TabMenu.Menu.Holder
+            Tab.Text =  text
+            Tab.TextSize = 14
+    
+            local Container =  ContainerPreset:Clone()
+            Container.Parent = MFrame.ContainerFolder
+            Container.Visible = false
+    
+            if fs == false then
+                fs = true
+                Container.Visible = true
+                Tab.UIPadding.PaddingLeft = UDim.new(0,10)
+                Tab.TextTransparency = 0
+                Tab.BackgroundTransparency = 0  
+                SolarisLib.CurrentTab = Container  
+            end    
+        end)
 
         spawn(function()
             pcall(function()
@@ -656,6 +659,8 @@ function SolarisLib:New(Config)
         function SectionHold:Section(text)
             local Section = SectionPreset:Clone()
             Section.Parent = Container
+            repeat task.wait() until Section:FindFirstChild("SectionTitle")
+
             Section.SectionTitle.Text = text
 
             spawn(function()
