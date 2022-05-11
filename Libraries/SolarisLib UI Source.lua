@@ -832,6 +832,7 @@ function SolarisLib:New(Config)
                 spawn(function()
                     pcall(function()
                         while wait() do
+                            repeat task.wait() until DropMain:FindFirstChild("Btn")
                             DropMain.Btn.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Dropdown
                             DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                             DropMain.Btn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -1134,10 +1135,12 @@ function SolarisLib:New(Config)
                 end)
 
                 function Bind:Set(key)
-                    self.Binding = false
-                    self.Value = key or self.Value
-                    self.Value = self.Value.Name or self.Value
-                    BindFrame.BText.Text = self.Value
+                    pcall(function()
+                        self.Binding = false
+                        self.Value = key or self.Value
+                        self.Value = self.Value.Name or self.Value
+                        BindFrame.BText.Text = self.Value
+                    end)
 				end
 
                 spawn(function()
