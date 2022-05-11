@@ -684,7 +684,6 @@ function SolarisLib:New(Config)
                          end
                     end)
                 end)
-
             end    
             function ItemHold:Toggle(text,def,flag,callback)
                 local Toggle,ToggleMain = {Value = false}, game:GetObjects("rbxassetid://6963155498")[1]
