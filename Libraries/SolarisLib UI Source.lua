@@ -1059,6 +1059,7 @@ function SolarisLib:New(Config)
                 TextboxFrame.Name = text .. "element"
 
                 TextboxFrame.Box.Changed:Connect(function()
+                    repeat task.wait() until TextboxFrame:FindFirstChild("Box")
                     TextboxFrame.Box.Size = UDim2.new(0,TextboxFrame.Box.TextBounds.X + 16,0,22)
                 end)
                 TextboxFrame.Box.PlaceholderText = "                  "
@@ -1079,6 +1080,7 @@ function SolarisLib:New(Config)
 				end)
 
                 UserInputService.InputBegan:Connect(function(input)
+                    repeat task.wait() until TextboxFrame:FindFirstChild("Box")
 					if input.KeyCode == Enum.KeyCode.Escape and TextboxFrame.Box:IsFocused() then
 						TextboxFrame.Box:ReleaseFocus()
 					end
@@ -1086,6 +1088,7 @@ function SolarisLib:New(Config)
                 
                 spawn(function()
                     while wait() do
+                        repeat task.wait() until TextboxFrame:FindFirstChild("Title")
                        TextboxFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Textbox
                        TextboxFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                        TextboxFrame.Box.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextboxFrame
