@@ -1036,6 +1036,7 @@ function SolarisLib:New(Config)
                 LabelFrame.Name = text .. "element"
 
                 function Label:Set(tochange)
+                    repeat task.wait() until LabelFrame:FindFirstChild("Title")
                     LabelFrame.Title.Text = tochange
                     LabelFrame.Name = text .. "element"
                 end    
