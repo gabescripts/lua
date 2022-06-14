@@ -2,7 +2,7 @@
 
 local Solaris = Instance.new("ScreenGui")
 syn.protect_gui(Solaris)
-Solaris.Name = game:GetService("HttpService"):GenerateGUID(false):lower()
+Solaris.Name = syn.crypt.hash(math.random(1, 454656546))
 Solaris.Parent = game.CoreGui
 Solaris.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
