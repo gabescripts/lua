@@ -1,2 +1,2 @@
-# Addendum
-lua scripts i've made for roblox
+# addendum
+lua scripts i've made for roblox, might add more
