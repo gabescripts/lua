@@ -14,7 +14,8 @@ local Supported = {
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/",
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
-
+  ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
+  
   --// Currently Working On Adding
 
   ["Mining Simulator 2"] = "https://www.roblox.com/games/9551640993/",
@@ -50,7 +51,6 @@ local Supported = {
   ["Mecha Simulator"] = "https://www.roblox.com/games/8605603204/",
   ["raise a floppa 2"] = "https://www.roblox.com/games/9772878203/",
   ["InSOnI v3"] = "https://www.roblox.com/games/357766274/",
-  ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
   ["social experiment"] = "https://www.roblox.com/games/9559194006/",
   ["Aimblox BETA"] = "https://www.roblox.com/games/6808416928/",
   ["Base Battles"] = "https://www.roblox.com/games/5326405001/",
