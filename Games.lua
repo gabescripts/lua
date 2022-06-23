@@ -8,7 +8,6 @@ local Supported = {
   ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
-  
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/",
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/",
