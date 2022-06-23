@@ -15,7 +15,8 @@ local Supported = {
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
-  
+  ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
+
   --// Currently Working On Adding
 
   ["Mining Simulator 2"] = "https://www.roblox.com/games/9551640993/",
@@ -31,7 +32,6 @@ local Supported = {
   ["99% Fail Impossible Obby"] = "https://www.roblox.com/games/7584496019/",
   ["Impossible Glass Bridge Obby"] = "https://www.roblox.com/games/7952502098/",
   ["Clicker Simulator"] = "https://www.roblox.com/games/7560156054/",
-  ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
   ["Slap Battles"] = "https://www.roblox.com/games/6403373529/",
   ["LUCKY BLOCKS Battlegrounds"] = "https://www.roblox.com/games/662417684/",
   ["Mall Tycoon"] = "https://www.roblox.com/games/5736409216/",
