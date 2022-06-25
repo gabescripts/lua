@@ -4,10 +4,13 @@ local Supported = {
   
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
+  ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
+
+  --// Below Will Be Supported Tomorrow
+
   ["Apeirophobia"] = "https://www.roblox.com/games/9508087919/",
   ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
-  ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/",
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/",
@@ -20,7 +23,7 @@ local Supported = {
   --// Currently Working On Adding
 
   ["Mining Simulator 2"] = "https://www.roblox.com/games/9551640993/",
-  
+  ["Mini Mart"] = "https://www.roblox.com/games/9547371593/",
   ["Ability Wars"] = "https://www.roblox.com/games/8260276694/",
   ["Bitcoin Miner"] = "https://www.roblox.com/games/2629642516/",
   ["Life Sentence"] = "https://www.roblox.com/games/7860844204/",
@@ -44,6 +47,8 @@ local Supported = {
 
   --// To Be Added Games
 
+  ["Paper.IO"] = "https://www.roblox.com/games/6644653750/",
+  ["The Ants Underground"] = "https://www.roblox.com/games/9705460681/",
   ["Ascender Simulator"] = "https://www.roblox.com/games/9797341364/",
   ["Kitty"] = "https://www.roblox.com/games/5002210114/",
   ["Critical Legends"] = "https://www.roblox.com/games/8619263259/",
