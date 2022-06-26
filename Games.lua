@@ -6,10 +6,10 @@ local Supported = {
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
   ["Apeirophobia"] = "https://www.roblox.com/games/9508087919/",
+  ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
 
   --// Below Will Be Supported Tomorrow
 
-  ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/",
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
