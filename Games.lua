@@ -16,6 +16,7 @@ local Supported = {
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
+  ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/",
 
   --// Currently Working On Adding
 
