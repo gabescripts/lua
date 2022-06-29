@@ -17,9 +17,11 @@ local Supported = {
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/",
+  ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/",
 
   --// Currently Working On Adding
 
+  ["Spin the Bottle"] = "https://www.roblox.com/games/7133467811/",
   ["Super Villain Tycoon"] = "https://www.roblox.com/games/6538660276/",
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/",
   ["Mining Simulator 2"] = "https://www.roblox.com/games/9551640993/",
