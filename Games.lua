@@ -1,6 +1,7 @@
 local Supported = {
   
   --// Currently Supported Games
+
   ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
@@ -21,7 +22,6 @@ local Supported = {
 
   --// Currently Working On Adding
 
-  ["Spin the Bottle"] = "https://www.roblox.com/games/7133467811/",
   ["Super Villain Tycoon"] = "https://www.roblox.com/games/6538660276/",
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/",
   ["Mining Simulator 2"] = "https://www.roblox.com/games/9551640993/",
