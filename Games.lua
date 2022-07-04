@@ -22,6 +22,8 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Frog Simulator"] = "https://www.roblox.com/games/5598577415/",
+  ["Anarchy"] = "https://www.roblox.com/games/5872075530/",
   ["Super Villain Tycoon"] = "https://www.roblox.com/games/6538660276/",
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/",
   ["Mining Simulator 2"] = "https://www.roblox.com/games/9551640993/",
