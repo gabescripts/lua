@@ -2,14 +2,14 @@ local Supported = {
   
   --// Currently Supported Games
 
-  ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
+  ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/",
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/",
+  ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
   ["Apeirophobia"] = "https://www.roblox.com/games/9508087919/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
   ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
-  ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/",
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/",
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/",
@@ -22,6 +22,9 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["MMC Zombies Project"] = "https://www.roblox.com/games/988099446/",
+  ["5v5 MM2"] = "https://www.roblox.com/games/8665470667/",
+  ["Bid Battles"] = "https://www.roblox.com/games/9603033881/",
   ["Frog Simulator"] = "https://www.roblox.com/games/5598577415/",
   ["Anarchy"] = "https://www.roblox.com/games/5872075530/",
   ["Super Villain Tycoon"] = "https://www.roblox.com/games/6538660276/",
@@ -51,6 +54,8 @@ local Supported = {
 
   --// To Be Added Games
 
+  ["Rift Royale"] = "https://www.roblox.com/games/9611595239/",
+  ["Raised By Floppa"] = "https://www.roblox.com/games/9771703133/",
   ["Paper.IO"] = "https://www.roblox.com/games/6644653750/",
   ["The Ants Underground"] = "https://www.roblox.com/games/9705460681/",
   ["Ascender Simulator"] = "https://www.roblox.com/games/9797341364/",
