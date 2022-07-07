@@ -19,10 +19,10 @@ local Supported = {
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/",
   ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/",
+  ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/",
 
   --// Currently Working On Adding
 
-  ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/",
   ["MMC Zombies Project"] = "https://www.roblox.com/games/988099446/",
   ["5v5 MM2"] = "https://www.roblox.com/games/8665470667/",
   ["Bid Battles"] = "https://www.roblox.com/games/9603033881/",
