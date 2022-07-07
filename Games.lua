@@ -23,7 +23,6 @@ local Supported = {
 
   --// Currently Working On Adding
 
-  ["MMC Zombies Project"] = "https://www.roblox.com/games/988099446/",
   ["5v5 MM2"] = "https://www.roblox.com/games/8665470667/",
   ["Bid Battles"] = "https://www.roblox.com/games/9603033881/",
   ["Frog Simulator"] = "https://www.roblox.com/games/5598577415/",
