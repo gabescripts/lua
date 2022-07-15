@@ -3,9 +3,6 @@ local Supported = {
   --// Currently Supported Games
 
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/",
-
-  --// will Update soon all below patched (new security added)
-
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/",
   ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
