@@ -24,6 +24,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Gun Simulator"] = "https://www.roblox.com/games/4036494886/",
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/",
   ["5v5 MM2"] = "https://www.roblox.com/games/8665470667/",
   ["Bid Battles"] = "https://www.roblox.com/games/9603033881/",
