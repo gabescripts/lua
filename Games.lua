@@ -7,6 +7,7 @@ local Supported = {
   ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
+  
   ["Apeirophobia"] = "https://www.roblox.com/games/9508087919/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
   ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
