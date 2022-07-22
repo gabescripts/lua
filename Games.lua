@@ -7,8 +7,8 @@ local Supported = {
   ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
-  
-  ["Apeirophobia"] = "https://www.roblox.com/games/9508087919/",
+
+  ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
   ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
@@ -25,6 +25,8 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Poo Tycoon"] = "https://www.roblox.com/games/9969599224/",
+  ["nico's nextbots"] = "https://www.roblox.com/games/10118559731/",
   ["Gun Simulator"] = "https://www.roblox.com/games/4036494886/",
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/",
   ["5v5 MM2"] = "https://www.roblox.com/games/8665470667/",
@@ -58,6 +60,9 @@ local Supported = {
 
   --// To Be Added Games
 
+  ["Strong Simulator X"] = "https://www.roblox.com/games/8876694280/",
+  ["Limited Words"] = "https://www.roblox.com/games/10001513103/",
+  ["Bloodlines"] = "https://www.roblox.com/games/5571328985/",
   ["Rift Royale"] = "https://www.roblox.com/games/9611595239/",
   ["Raised By Floppa"] = "https://www.roblox.com/games/9771703133/",
   ["Paper.IO"] = "https://www.roblox.com/games/6644653750/",
