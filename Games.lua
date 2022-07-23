@@ -22,9 +22,12 @@ local Supported = {
   ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/",
   ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/",
   ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/",
+  ["Victory Race"] = "https://www.roblox.com/games/4951858512/",
 
   --// Currently Working On Adding
 
+  ["Undead Epidemic"] = "https://www.roblox.com/games/1953856342/",
+  ["Guillotine Tycoon"] = "https://www.roblox.com/games/10191372093/",
   ["Poo Tycoon"] = "https://www.roblox.com/games/9969599224/",
   ["nico's nextbots"] = "https://www.roblox.com/games/10118559731/",
   ["Gun Simulator"] = "https://www.roblox.com/games/4036494886/",
