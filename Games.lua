@@ -1,3 +1,5 @@
+--// Last Updated: 08/01/2022 13:00 UTC+10
+
 local Supported = {
   
   --// Currently Supported Games
@@ -26,6 +28,8 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Egg Packing Tycoon"] = "https://www.roblox.com/games/9936860371/",
+  ["Knife Simulator"] = "https://www.roblox.com/games/1167791961/",
   ["Undead Epidemic"] = "https://www.roblox.com/games/1953856342/",
   ["Guillotine Tycoon"] = "https://www.roblox.com/games/10191372093/",
   ["Poo Tycoon"] = "https://www.roblox.com/games/9969599224/",
