@@ -9,13 +9,14 @@ local Supported = {
   ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/",
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/",
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/",
-
   ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/",
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
-  ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/",
+
+  ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/", --Patched
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/",
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/",
+
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
