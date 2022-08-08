@@ -1,4 +1,4 @@
---// Last Updated: 08/01/2022 13:00 UTC+10
+--// Last Updated: 08/08/2022 15:00 UTC+10
 
 local Supported = {
   
@@ -30,6 +30,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Rainbow Friends"] = "https://www.roblox.com/games/7991339063/",
   ["Egg Packing Tycoon"] = "https://www.roblox.com/games/9936860371/",
   ["Knife Simulator"] = "https://www.roblox.com/games/1167791961/",
   ["Undead Epidemic"] = "https://www.roblox.com/games/1953856342/",
