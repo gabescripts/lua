@@ -17,7 +17,6 @@ local Supported = {
   ["Victory Race"] = "https://www.roblox.com/games/4951858512/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", 
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
-  ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
 
   ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/",
@@ -25,6 +24,7 @@ local Supported = {
   ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/",
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
 
+  ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", -- Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Patched
   ["3008 [2.71]"] = "https://www.roblox.com/games/2768379856/", -- Patched
 
