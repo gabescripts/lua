@@ -26,7 +26,7 @@ local Supported = {
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
 
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Patched
-  ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/", -- Patched
+  ["3008 [2.71]"] = "https://www.roblox.com/games/2768379856/", -- Patched
 
   --// Currently Working On Adding
 
