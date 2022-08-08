@@ -17,9 +17,9 @@ local Supported = {
   ["Victory Race"] = "https://www.roblox.com/games/4951858512/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", 
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
-
-  ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", -- Unchecked
-  ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/", -- Unchecked
+  ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
+  ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
+  
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Unchecked
   ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/", -- Unchecked
   ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/", -- Unchecked
