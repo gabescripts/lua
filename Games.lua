@@ -66,9 +66,7 @@ local Supported = {
   ["Zombie Stories"] = "https://www.roblox.com/games/2984072291/",
   ["Trade Tower"] = "https://www.roblox.com/games/5023820864/",
   ["Grass Cutting Incremental"] = "https://www.roblox.com/games/9292879820/",
-
-  --// To Be Added Games
-
+  ["MiscGunTest:X"] = "https://www.roblox.com/games/9157605735/",
   ["Strong Simulator X"] = "https://www.roblox.com/games/8876694280/",
   ["Limited Words"] = "https://www.roblox.com/games/10001513103/",
   ["Bloodlines"] = "https://www.roblox.com/games/5571328985/",
