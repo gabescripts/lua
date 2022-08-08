@@ -13,7 +13,6 @@ local Supported = {
   ["CHAOS"] = "https://www.roblox.com/games/6441847031",
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/",
-
   ["Victory Race"] = "https://www.roblox.com/games/4951858512/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", 
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
@@ -30,6 +29,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Your Bizarre Adventure"] = "https://www.roblox.com/games/2809202155/",
   ["Rainbow Friends"] = "https://www.roblox.com/games/7991339063/",
   ["Egg Packing Tycoon"] = "https://www.roblox.com/games/9936860371/",
   ["Knife Simulator"] = "https://www.roblox.com/games/1167791961/",
