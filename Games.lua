@@ -19,13 +19,13 @@ local Supported = {
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/",
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
-  
-  ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Unchecked
-  ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/", -- Unchecked
-  ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/", -- Unchecked
-  ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/", -- Unchecked
-  ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/", -- Unchecked
 
+  ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/",
+  ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/",
+  ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/",
+  ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
+
+  ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Patched
   ["3008 [2.7]"] = "https://www.roblox.com/games/2768379856/", -- Patched
 
   --// Currently Working On Adding
