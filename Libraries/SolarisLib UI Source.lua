@@ -1,13 +1,13 @@
 -- This User Interface Library is brought to you by Solaris Software.
 
 local Solaris = Instance.new("ScreenGui")
-syn.protect_gui(Solaris)
+--syn.protect_gui(Solaris)
 Solaris.Name = syn.crypt.hash(math.random(1, 454656546))
 Solaris.Parent = game.CoreGui
 Solaris.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local NotificationHolder = Instance.new("ScreenGui")
-syn.protect_gui(NotificationHolder)
+--syn.protect_gui(NotificationHolder)
 NotificationHolder.Name = "notiHolder"
 NotificationHolder.Parent = game.CoreGui
 NotificationHolder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
