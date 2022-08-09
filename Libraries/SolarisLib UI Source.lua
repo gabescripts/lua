@@ -1,5 +1,3 @@
--- This User Interface Library is brought to you by Solaris Software.
-
 local Solaris = Instance.new("ScreenGui")
 --syn.protect_gui(Solaris)
 Solaris.Name = syn.crypt.hash(math.random(1, 454656546))
