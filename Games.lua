@@ -17,7 +17,6 @@ local Supported = {
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", 
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
-
   ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/",
   ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/",
   ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/",
