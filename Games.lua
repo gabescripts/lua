@@ -28,6 +28,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["My Prison"] = "https://www.roblox.com/games/10118504428/",
   ["Your Bizarre Adventure"] = "https://www.roblox.com/games/2809202155/",
   ["Rainbow Friends"] = "https://www.roblox.com/games/7991339063/",
   ["Egg Packing Tycoon"] = "https://www.roblox.com/games/9936860371/",
