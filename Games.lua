@@ -1,4 +1,4 @@
---// Last Updated: 08/12/2022 15:00 UTC+10
+--// Last Updated: 08/14/2022
 
 local Supported = {
   
@@ -14,6 +14,7 @@ local Supported = {
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/",
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/",
   ["Victory Race"] = "https://www.roblox.com/games/4951858512/",
+  ["Victory Jump"] = "https://www.roblox.com/games/10379662529/",
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", 
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/",
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/",
