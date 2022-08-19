@@ -1,4 +1,4 @@
---// Last Updated: 08/14/2022
+--// Last Updated: 08/20/2022
 
 local Supported = {
   
@@ -23,12 +23,15 @@ local Supported = {
   ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/",
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
   ["3008 [2.71]"] = "https://www.roblox.com/games/2768379856/",
+  ["Driving Simulator"] = "https://www.roblox.com/games/4410049285/",
 
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", -- Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Patched
 
   --// Currently Working On Adding
 
+  ["Mow The Lawn!"] = "https://www.roblox.com/games/10108131074/",
+  ["Evade"] = "https://www.roblox.com/games/9872472334/",
   ["My Prison"] = "https://www.roblox.com/games/10118504428/",
   ["Your Bizarre Adventure"] = "https://www.roblox.com/games/2809202155/",
   ["Rainbow Friends"] = "https://www.roblox.com/games/7991339063/",
