@@ -24,6 +24,7 @@ local Supported = {
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/",
   ["3008 [2.71]"] = "https://www.roblox.com/games/2768379856/",
   ["Driving Simulator"] = "https://www.roblox.com/games/4410049285/",
+  ["Race Clicker"] = "https://www.roblox.com/games/9285238704/",
 
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", -- Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", -- Patched
