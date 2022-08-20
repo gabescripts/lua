@@ -31,6 +31,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Money Tycoon"] = "https://www.roblox.com/games/9898710720/",
   ["Mow The Lawn!"] = "https://www.roblox.com/games/10108131074/",
   ["Evade"] = "https://www.roblox.com/games/9872472334/",
   ["My Prison"] = "https://www.roblox.com/games/10118504428/",
