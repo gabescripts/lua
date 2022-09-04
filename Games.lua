@@ -2,7 +2,7 @@
 
 local Supported = {
   
-  --// Currently Supported Games
+  --// Currently Supports 24 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 08/31/2022
