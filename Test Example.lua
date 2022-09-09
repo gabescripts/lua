@@ -16,8 +16,18 @@ local Services = setmetatable({}, {__index = function(t, i) return game:GetServi
 local Client = Services.Players.LocalPlayer
 
 local LabelText = Section1:Label("Toggle Label Text")
+
 Section1:Toggle("Toggle", false, "Toggle", function(t) print(t) end)
-local Check = Section1:Slider("Slider", 15, 25, 10, 0.5, "Slider", function(t) print(t) end)
+
+local setslider = 0
+local NumVal = Instance.new("NumberValue")
+local Check = Section1:Slider(string.format("Slider: %i", setslider), 0, 25, setslider, 0.5, "Slider", function(t) 
+  setslider = t;
+  NumVal.Value = setslider
+end)
+NumVal:GetPropertyChangedSignal("Value"):Connect(function()
+  Check:Set(setslider, string.format("Slider: %i", setslider))
+end)
 
 local Section2 = Tab1:Section("Player Section")
 local PlayerList = {}
