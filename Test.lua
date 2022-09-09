@@ -1,13 +1,9 @@
-local Solaris = Instance.new("ScreenGui")
---syn.protect_gui(Solaris)
+local Solaris = Instance.new("ScreenGui", game.CoreGui)
 Solaris.Name = game:GetService("HttpService"):GenerateGUID(false)
-Solaris.Parent = game.CoreGui
 Solaris.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local NotificationHolder = Instance.new("ScreenGui")
---syn.protect_gui(NotificationHolder)
+local NotificationHolder = Instance.new("ScreenGui", game.CoreGui)
 NotificationHolder.Name = "notiHolder"
-NotificationHolder.Parent = game.CoreGui
 NotificationHolder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local UserInputService = game:GetService("UserInputService")
@@ -18,14 +14,13 @@ local Mouse = LocalPlayer:GetMouse()
 local http = game:GetService("HttpService")
 
 local WhitelistedMouse = {Enum.UserInputType.MouseButton1, Enum.UserInputType.MouseButton2,Enum.UserInputType.MouseButton3}
-local BlacklistedKeys = {Enum.KeyCode.Unknown,Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.Up,Enum.KeyCode.Left,Enum.KeyCode.Down,Enum.KeyCode.Right,Enum.KeyCode.Slash,Enum.KeyCode.Tab,Enum.KeyCode.Backspace,Enum.KeyCode.Escape}
+local BlacklistedKeys = {Enum.KeyCode.Unknown,Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.Up,Enum.KeyCode.Left,Enum.KeyCode.Down,Enum.KeyCode.Right,Enum.KeyCode.Slash,Enum.KeyCode.Backspace,Enum.KeyCode.Escape}
 
-local function CheckKey(tab, key)
+function KeyCheck(tab, key)
 	for i, v in next, tab do
-		if v == key then
-			return true
-		end
+		if v == key then return true end
 	end
+  return false
 end
 
 local NotificationFrame = game:GetObjects("rbxassetid://6924028278")[1]
@@ -386,12 +381,12 @@ function SolarisLib:New(Config)
                     if closebindbinding then
                         local Key
                         pcall(function()
-                            if not CheckKey(BlacklistedKeys, Input.KeyCode) then
+                            if not KeyCheck(BlacklistedKeys, Input.KeyCode) then
                                 Key = Input.KeyCode
                             end
                         end)
                         pcall(function()
-                            if CheckKey(WhitelistedMouse, Input.UserInputType) and not Key then
+                            if KeyCheck(WhitelistedMouse, Input.UserInputType) and not Key then
                                 Key = Input.UserInputType
                             end
                         end)
@@ -712,7 +707,7 @@ function SolarisLib:New(Config)
 				
 				ToggleMain.MouseButton1Click:Connect(function()
 					Toggle.Value = not Toggle.Value
-					Toggle:Set(Toggle.Value)           
+					Toggle:Set(Toggle.Value)
 				end)
 
                 spawn(function()
@@ -730,8 +725,8 @@ function SolarisLib:New(Config)
                 SolarisLib.Flags[flag] = Toggle
                 return Toggle
             end    
-            function ItemHold:Slider(text,min,max,start,inc,flag,callback)
-                local Slider,SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
+            function ItemHold:Slider(text, min, max, start, inc, flag, callback)
+                local Slider, SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
                 SliderMain.Parent = Section
                 SliderMain.SliderText.Text = text
                 SliderMain.Name = text .. "element"
@@ -1124,12 +1119,12 @@ function SolarisLib:New(Config)
                     elseif Bind.Binding then
                         local Key
                         pcall(function()
-                            if not CheckKey(BlacklistedKeys, Input.KeyCode) then
+                            if not KeyCheck(BlacklistedKeys, Input.KeyCode) then
                                 Key = Input.KeyCode
                             end
                         end)
                         pcall(function()
-                            if CheckKey(WhitelistedMouse, Input.UserInputType) and not Key then
+                            if KeyCheck(WhitelistedMouse, Input.UserInputType) and not Key then
                                 Key = Input.UserInputType
                             end
                         end)
