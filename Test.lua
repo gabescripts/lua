@@ -658,7 +658,7 @@ function SolarisLib:New(Config)
 				ToggleMain.Name = text .. "element"
 
 				function Toggle:Set(value, onchange)
-					if text and ToggleMain:FindFirstChild("ToggleText") then
+					if onchange and ToggleMain:FindFirstChild("ToggleText") then
 						ToggleMain.ToggleText.Text = onchange
 					end
 

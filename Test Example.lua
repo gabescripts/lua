@@ -16,8 +16,7 @@ local Services = setmetatable({}, {__index = function(t, i) return game:GetServi
 local Client = Services.Players.LocalPlayer
 
 local LabelText = Section1:Label("Toggle Label Text")
-
-Section1:Toggle("Toggle", false, "Toggle", function(t) print(t) end)
+local TestToggle = Section1:Toggle("Test Toggle", false, "Toggle", function(t) print(t) end)
 
 local setslider = 10
 local NumVal = Instance.new("NumberValue")
@@ -52,7 +51,10 @@ Section3:Bind("Hold Bind", Enum.KeyCode.E, true, "BindHold", function(t) print(t
 Section3:Bind("Teleport Key", Enum.KeyCode.Q, false, "BindNormal", function() if Mouse.Target then Client.Character.HumanoidRootPart.CFrame = Client.Character.HumanoidRootPart.CFrame.Rotation + Vector3.new(Mouse.Hit.x, Mouse.Hit.y + 5, Mouse.Hit.z) end end)
 
 Section3:Button("Notification", function() Library:Notification("Test", "This is a notification test.") end)
-Section3:Button("SetKey", function() Check:Set(8) end)
+Section3:Button("SetKey", function() 
+  TestToggle:Set(true, "bing bong lol")
+  Check:Set(8)
+end)
 Section3:Button("Rejoin", function() Services.TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId) end)
 
 --[[
