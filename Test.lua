@@ -753,7 +753,7 @@ function SolarisLib:New(Config)
                     SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
                     Slider.Value = val
 
-                    if text and SliderMain:FindFirstChild("SliderText") then
+                    if tochange and SliderMain:FindFirstChild("SliderText") then
                         SliderMain.SliderText.Text = tochange
                         SliderMain.Name = text .. "element"
                     end
