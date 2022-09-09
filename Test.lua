@@ -746,13 +746,18 @@ function SolarisLib:New(Config)
 				SliderMain.SliderFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
 				game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
 
-                function Slider:Set(val)
+                function Slider:Set(val, text)
                     local a = tostring(val and (val / max) * (max - min) + min) or 0
 					SliderMain.SliderVal.Text = tostring(a)
                     SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
                     Slider.Value = val
+
+                    if text and SliderMain:FindFirstChild("SliderText") then
+                        SliderMain.SliderText.Text = tochange
+                        SliderMain.Name = text .. "element"
+                    end
 					return callback(Slider.Value)
-				end	
+				end
 
                 spawn(function()
                     while wait() do
@@ -1032,8 +1037,7 @@ function SolarisLib:New(Config)
                     repeat task.wait() until LabelFrame:FindFirstChild("Title")
                     LabelFrame.Title.Text = tochange
                     LabelFrame.Name = text .. "element"
-                end    
-
+                end
                 
                 spawn(function()
                     pcall(function()
