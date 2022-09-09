@@ -1057,7 +1057,8 @@ function SolarisLib:New(Config)
 				BindFrame.Name = text .. "element"
 
 				BindFrame.InputEnded:Connect(function(Input)
-					if Input.UserInputType == Enum.UserInputType.MouseButton1 and not Bind.Binding then
+					if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+						if Bind.Binding then return end;
 						Bind.Binding = true
 						BindFrame.BText.Text = "..."
 					end
