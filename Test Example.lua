@@ -19,14 +19,14 @@ local LabelText = Section1:Label("Toggle Label Text")
 
 Section1:Toggle("Toggle", false, "Toggle", function(t) print(t) end)
 
-local setslider = 0
+local setslider = 10
 local NumVal = Instance.new("NumberValue")
 local Check = Section1:Slider(string.format("Slider: %i", setslider), 0, 25, setslider, 0.5, "Slider", function(t) 
   setslider = t;
   NumVal.Value = setslider
 end)
 NumVal:GetPropertyChangedSignal("Value"):Connect(function()
-  Check:Set(setslider, string.format("Slider: %i", setslider))
+  Check:Set(setslider, string.format("Slider: %ims", setslider))
 end)
 
 local Section2 = Tab1:Section("Player Section")

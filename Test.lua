@@ -679,445 +679,446 @@ function SolarisLib:New(Config)
 				end)
 
 				Toggle:Set(def)
-					SolarisLib.Flags[flag] = Toggle
-					return Toggle
+				SolarisLib.Flags[flag] = Toggle
+				return Toggle
+			end
+
+			function ItemHold:Slider(text, min, max, start, inc, flag, callback)
+				local Slider, SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
+				SliderMain.Parent = Section
+				SliderMain.SliderText.Text = text
+				SliderMain.Name = text .. "element"
+
+				local dragging = false
+				local function move(Input)
+					local XSize = math.clamp((Input.Position.X - SliderMain.SliderFrame.AbsolutePosition.X) / SliderMain.SliderFrame.AbsoluteSize.X, 0, 1)
+					local Increment = inc and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or (max / (max - min))
+					local SizeRounded = UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)), 0, 1, 0) 
+					TweenService:Create(SliderMain.SliderFrame.SliderCurrentFrame,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = SizeRounded}):Play() 
+
+					local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20
+					SliderMain.SliderVal.Text = tostring(Val)
+					Slider.Value = Val
+					callback(Slider.Value)
+				end
+				
+				SliderMain.SliderFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
+				SliderMain.SliderFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
+				game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
+
+				function Slider:Set(val, tochange)
+					local a = tostring(val and (val / max) * (max - min) + min) or 0
+					SliderMain.SliderVal.Text = tostring(a)
+					SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
+					Slider.Value = val
+
+					if tochange and SliderMain:FindFirstChild("SliderText") then
+						SliderMain.SliderText.Text = tochange
+						SliderMain.Name = text .. "element"
+					end
+
+					return callback(Slider.Value)
 				end
 
-				function ItemHold:Slider(text, min, max, start, inc, flag, callback)
-					local Slider, SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
-					SliderMain.Parent = Section
-					SliderMain.SliderText.Text = text
-					SliderMain.Name = text .. "element"
-
-					local dragging = false
-					local function move(Input)
-						local XSize = math.clamp((Input.Position.X - SliderMain.SliderFrame.AbsolutePosition.X) / SliderMain.SliderFrame.AbsoluteSize.X, 0, 1)
-						local Increment = inc and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or (max / (max - min))
-						local SizeRounded = UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)), 0, 1, 0) 
-						TweenService:Create(SliderMain.SliderFrame.SliderCurrentFrame,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = SizeRounded}):Play() 
-
-						local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20
-						SliderMain.SliderVal.Text = tostring(Val)
-						Slider.Value = Val
-						callback(Slider.Value)
+				task.spawn(function()
+					while task.wait() do
+						SliderMain.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Slider
+						SliderMain.SliderFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderBar
+						SliderMain.SliderFrame.SliderCurrentFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderInc
+						SliderMain.SliderText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+						SliderMain.SliderVal.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
 					end
-					
-					SliderMain.SliderFrame.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = true end end)
-					SliderMain.SliderFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
-					game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
+				end)
 
-					function Slider:Set(val, tochange)
-						local a = tostring(val and (val / max) * (max - min) + min) or 0
-						SliderMain.SliderVal.Text = tostring(a)
-						SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
-						Slider.Value = val
+				Slider:Set(start)
+				SolarisLib.Flags[flag] = Slider
+				return Slider
+			end
 
-						if tochange and SliderMain:FindFirstChild("SliderText") then
-							SliderMain.SliderText.Text = tochange
-							SliderMain.Name = text .. "element"
-						end
+			function ItemHold:Dropdown(text,list,def,flag,callback)
+				local Dropdown,DropMain,OptionPreset = {Value = nil, Toggled = false, Options = list}, game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
+				DropMain.Parent = Section
+				DropMain.Btn.Title.Text = text
+				DropMain.Name = text .. "element"
 
-						return callback(Slider.Value)
-					end
-
-					task.spawn(function()
-						while task.wait() do
-							SliderMain.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Slider
-							SliderMain.SliderFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderBar
-							SliderMain.SliderFrame.SliderCurrentFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderInc
-							SliderMain.SliderText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-							SliderMain.SliderVal.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-						end
-					end)
-
-					Slider:Set(start)
-					SolarisLib.Flags[flag] = Slider
-					return Slider
+				local function ToggleDrop()
+					Dropdown.Toggled = not Dropdown.Toggled
+					DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
+					TweenService:Create(DropMain,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)}):Play() 
+					TweenService:Create(DropMain.Btn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = Dropdown.Toggled and 180 or 0}):Play() 
+					DropMain.Holder.Visible = Dropdown.Toggled
 				end
 
-				function ItemHold:Dropdown(text,list,def,flag,callback)
-					local Dropdown,DropMain,OptionPreset = {Value = nil, Toggled = false, Options = list}, game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
-					DropMain.Parent = Section
-					DropMain.Btn.Title.Text = text
-					DropMain.Name = text .. "element"
+				local function AddOptions(opts)
+					for _, option in pairs(opts) do
+						local Option = OptionPreset:Clone()
+						Option.Parent = DropMain.Holder
+						Option.ItemText.Text = option
+						Option.ClipsDescendants = true
 
-					local function ToggleDrop()
-						Dropdown.Toggled = not Dropdown.Toggled
-						DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
-						TweenService:Create(DropMain,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)}):Play() 
-						TweenService:Create(DropMain.Btn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = Dropdown.Toggled and 180 or 0}):Play() 
-						DropMain.Holder.Visible = Dropdown.Toggled
-					end
-
-					local function AddOptions(opts)
-						for _, option in pairs(opts) do
-							local Option = OptionPreset:Clone()
-							Option.Parent = DropMain.Holder
-							Option.ItemText.Text = option
-							Option.ClipsDescendants = true
-
-							Option.MouseButton1Click:Connect(function()
-								Dropdown.Value = option
-								DropMain.Btn.Title.Text = text .. ": " .. option
-								Ripple(Option)
-								return callback(Dropdown.Value)
-							end)
-
-							task.spawn(function()
-								pcall(function()
-									while task.wait() do
-										Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
-										DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-									end
-								end)
-							end)
-						end
-					end
-
-					function Dropdown:Refresh(opts,del)
-						if del then
-							for _,v in pairs(DropMain.Holder:GetChildren()) do
-								if v:IsA"TextButton" then
-									v:Destroy()
-									DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
-									DropMain.Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)
-								end
-							end
-						end    
-						AddOptions(opts)
-					end
-
-					DropMain.Btn.MouseButton1Click:Connect(ToggleDrop)
-
-					function Dropdown:Set(val)
-						Dropdown.Value = val
-						DropMain.Btn.Title.Text = text .. ": " .. val
-						return callback(Dropdown.Value)
-					end
-
-					task.spawn(function()
-						pcall(function()
-							while task.wait() do
-								if not DropMain:FindFirstChild("Btn") then continue end;
-								DropMain.Btn.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Dropdown
-								DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-								DropMain.Btn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-							end
+						Option.MouseButton1Click:Connect(function()
+							Dropdown.Value = option
+							DropMain.Btn.Title.Text = text .. ": " .. option
+							Ripple(Option)
+							return callback(Dropdown.Value)
 						end)
-					end)
 
-					Dropdown:Refresh(list, false)
-					Dropdown:Set(def)
-					SolarisLib.Flags[flag] = Dropdown
-					return Dropdown
-				end
-
-				function ItemHold:MultiDropdown(text, list, def, flag, callback)
-					local Dropdown,DropMain,OptionPreset = {Value = {}, Toggled = false, Options = list}, game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
-					DropMain.Parent = Section
-					DropMain.Btn.Title.Text = text
-					DropMain.Name = text .. "element"
-
-					local function ToggleDrop()
-						Dropdown.Toggled = not Dropdown.Toggled
-						DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
-						TweenService:Create(DropMain,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)}):Play() 
-						TweenService:Create(DropMain.Btn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = Dropdown.Toggled and 180 or 0}):Play() 
-						DropMain.Holder.Visible = Dropdown.Toggled
-					end  
-
-					local function AddOptions(opts)
-						for _,option in pairs(opts) do
-							local Option = OptionPreset:Clone()
-							Option.Parent = DropMain.Holder
-							Option.ItemText.Text = option
-							Option.ClipsDescendants = true
-
-							Option.MouseButton1Click:Connect(function()
-								if table.find(Dropdown.Value, option) then				
-									table.remove(Dropdown.Value, table.find(Dropdown.Value, option))
-									DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
-									callback(Dropdown.Value)
-								else
-									table.insert(Dropdown.Value, option)
-									DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
-									callback(Dropdown.Value)
-								end
-								Ripple(Option)
-							end)
-
-							task.spawn(function()
+						task.spawn(function()
+							pcall(function()
 								while task.wait() do
 									Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
 									DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
 								end
 							end)
-						end
+						end)
 					end
+				end
 
-					function Dropdown:Refresh(opts,del)
-						if del then
-							for _,v in pairs(DropMain.Holder:GetChildren()) do
-								if v:IsA("TextButton") then
-									v:Destroy()
-									DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
-									DropMain.Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)
-								end
+				function Dropdown:Refresh(opts,del)
+					if del then
+						for _,v in pairs(DropMain.Holder:GetChildren()) do
+							if v:IsA"TextButton" then
+								v:Destroy()
+								DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
+								DropMain.Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)
 							end
 						end
-						AddOptions(opts)
-					end
+					end    
+					AddOptions(opts)
+				end
 
-					DropMain.Btn.MouseButton1Click:Connect(ToggleDrop)
+				DropMain.Btn.MouseButton1Click:Connect(ToggleDrop)
 
-					function Dropdown:Set(val)
-						Dropdown.Value = val
-						DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
-						return callback(Dropdown.Value)
-					end
+				function Dropdown:Set(val)
+					Dropdown.Value = val
+					DropMain.Btn.Title.Text = text .. ": " .. val
+					return callback(Dropdown.Value)
+				end
 
-					task.spawn(function()
+				task.spawn(function()
+					pcall(function()
 						while task.wait() do
+							if not DropMain:FindFirstChild("Btn") then continue end;
 							DropMain.Btn.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Dropdown
 							DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
 							DropMain.Btn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
 						end
 					end)
+				end)
 
-					Dropdown:Refresh(list,false)
-					Dropdown:Set(def)
-					SolarisLib.Flags[flag] = Dropdown
+				Dropdown:Refresh(list, false)
+				Dropdown:Set(def)
+				SolarisLib.Flags[flag] = Dropdown
+				return Dropdown
+			end
 
-					return Dropdown
-				end
+			function ItemHold:MultiDropdown(text, list, def, flag, callback)
+				local Dropdown,DropMain,OptionPreset = {Value = {}, Toggled = false, Options = list}, game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
+				DropMain.Parent = Section
+				DropMain.Btn.Title.Text = text
+				DropMain.Name = text .. "element"
 
-				function ItemHold:Colorpicker(text,preset,flag,callback)
-					local ColorH, ColorS, ColorV = 1, 1, 1
-					local ColorPicker, ColorPreset, DragPreset = {Value = preset, Toggled = false}, game:GetObjects("rbxassetid://7329998014")[1]
-					ColorPreset.Hue.Visible, ColorPreset.Color.Visible = ColorPicker.Toggled, ColorPicker.Toggled
-					ColorPreset.Parent = Section
-					ColorPreset.Btn.Colorpicker.Text = text
-					ColorPreset.Name = text .. "element"
-					ColorPreset.Btn.Box.BackgroundColor3 = preset
-					ColorPreset.Hue.HueGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(0.20, Color3.fromRGB(234, 255, 0)), ColorSequenceKeypoint.new(0.40, Color3.fromRGB(21, 255, 0)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(0, 255, 255)), ColorSequenceKeypoint.new(0.80, Color3.fromRGB(0, 17, 255)), ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 0, 251)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 4))}
+				local function ToggleDrop()
+					Dropdown.Toggled = not Dropdown.Toggled
+					DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
+					TweenService:Create(DropMain,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)}):Play() 
+					TweenService:Create(DropMain.Btn.Ico,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = Dropdown.Toggled and 180 or 0}):Play() 
+					DropMain.Holder.Visible = Dropdown.Toggled
+				end  
 
-					local Color = ColorPreset.Color
-					local Hue = ColorPreset.Hue
-					local HueSelection = ColorPreset.Hue.HueSelection
-					local ColorSelection = ColorPreset.Color.ColorSelection
-					
-					function UpdateColorPicker()
-						ColorPreset.Btn.Box.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
-						Color.BackgroundColor3 = Color3.fromHSV(ColorH, 1, 1)
-						pcall(callback, ColorPreset.Btn.Box.BackgroundColor3)
-					end
+				local function AddOptions(opts)
+					for _,option in pairs(opts) do
+						local Option = OptionPreset:Clone()
+						Option.Parent = DropMain.Holder
+						Option.ItemText.Text = option
+						Option.ClipsDescendants = true
 
-					ColorPreset.Btn.MouseButton1Click:Connect(function()
-						ColorPicker.Toggled = not ColorPicker.Toggled
-						TweenService:Create(ColorPreset,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = ColorPicker.Toggled and UDim2.new(1,0,0,120) or UDim2.new(1,0,0,32)}):Play() 
-						ColorPreset.Hue.Visible, ColorPreset.Color.Visible = ColorPicker.Toggled, ColorPicker.Toggled
-					end)
-
-					ColorH = 1 - (math.clamp(HueSelection.AbsolutePosition.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) / Hue.AbsoluteSize.Y)
-					ColorS = (math.clamp(ColorSelection.AbsolutePosition.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) / Color.AbsoluteSize.X)
-					ColorV = 1 - (math.clamp(ColorSelection.AbsolutePosition.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) / Color.AbsoluteSize.Y)
-
-					ColorPreset.Btn.Box.BackgroundColor3 = preset
-					Color.BackgroundColor3 = preset
-					pcall(callback, ColorPreset.Btn.Box.BackgroundColor3)
-
-					Color.InputBegan:Connect(function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 then
-							if ColorInput then ColorInput:Disconnect() end
-							ColorInput = RunService.RenderStepped:Connect(function()
-								local ColorX = (math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) / Color.AbsoluteSize.X)
-								local ColorY = (math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) / Color.AbsoluteSize.Y)
-								ColorSelection.Position = UDim2.new(ColorX, 0, ColorY, 0)
-								ColorS = ColorX
-								ColorV = 1 - ColorY
-								UpdateColorPicker()
-							end)
-						end
-					end)
-
-					Color.InputEnded:Connect(function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 and ColorInput then
-							ColorInput:Disconnect()
-						end
-					end)
-
-					Hue.InputBegan:Connect(function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 then
-							if HueInput then HueInput:Disconnect() end
-							HueInput = RunService.RenderStepped:Connect(function()
-								local HueY = (math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) / Hue.AbsoluteSize.Y)
-								HueSelection.Position = UDim2.new(0.48, 0, HueY, 0)
-								ColorH = 1 - HueY
-
-								UpdateColorPicker(true)
-							end)
-						end
-					end)
-
-					Hue.InputEnded:Connect(function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 and HueInput then
-							HueInput:Disconnect()
-						end
-					end)
-
-					task.spawn(function()
-						while task.wait() do
-							ColorPreset.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Colorpicker
-							ColorPreset.Btn.Colorpicker.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-						end
-					end)
-
-					return ColorPicker
-				end
-
-				function ItemHold:Label(text)
-					local Label, LabelFrame = {}, game:GetObjects("rbxassetid://7032552322")[1]
-					LabelFrame.Parent = Section
-					LabelFrame.Title.Text = text
-					LabelFrame.Name = text .. "element"
-
-					function Label:Set(tochange)
-						repeat task.wait() until LabelFrame:FindFirstChild("Title")
-						LabelFrame.Title.Text = tochange
-						LabelFrame.Name = text .. "element"
-					end
-					
-					task.spawn(function()
-						pcall(function()
-							while task.wait() do
-								LabelFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Label
-								LabelFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-							end
-						end)
-					end)
-
-					return Label
-				end
-
-				function ItemHold:Textbox(text,disappear,callback)
-					local Textbox, TextboxFrame = {}, game:GetObjects("rbxassetid://7147292392")[1]
-					TextboxFrame.Parent = Section
-					TextboxFrame.Title.Text = text
-					TextboxFrame.Name = text .. "element"
-
-					TextboxFrame.Box.Changed:Connect(function()
-						repeat task.wait() until TextboxFrame:FindFirstChild("Box")
-						TextboxFrame.Box.Size = UDim2.new(0,TextboxFrame.Box.TextBounds.X + 16,0,22)
-					end)
-
-					TextboxFrame.Box.PlaceholderText = "                  "
-					TextboxFrame.InputBegan:Connect(function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 then
-							TextboxFrame.Box:CaptureFocus()
-						end
-					end)
-		
-					TextboxFrame.Box.FocusLost:Connect(function()
-						local txt = TextboxFrame.Box.Text
-						if disappear then TextboxFrame.Box.Text = "" end  
-						return callback(txt)
-					end)
-
-					UserInputService.InputBegan:Connect(function(input)
-						if input.KeyCode == Enum.KeyCode.Escape and TextboxFrame:FindFirstChild("Box") and TextboxFrame.Box:IsFocused() then
-							TextboxFrame.Box:ReleaseFocus()
-						end
-					end)
-						
-					task.spawn(function()
-						while task.wait() do
-							if not TextboxFrame:FindFirstChild("Title") then continue end;
-							TextboxFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Textbox
-							TextboxFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-							TextboxFrame.Box.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextboxFrame
-							TextboxFrame.Box.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-						end
-					end)
-
-					return Textbox
-				end
-
-				function ItemHold:Bind(text, preset, holdmode, flag, callback)
-					local Bind, BindFrame = {Value, Binding = false, Holding = false}, game:GetObjects("rbxassetid://7126874744")[1]
-					BindFrame.Parent = Section
-					BindFrame.Title.Text = text
-					BindFrame.Name = text .. "element"
-
-					BindFrame.InputEnded:Connect(function(Input)
-						if Input.UserInputType == Enum.UserInputType.MouseButton1 and not Bind.Binding then
-							Bind.Binding = true
-							BindFrame.BText.Text = "..."
-						end
-					end)
-
-					UserInputService.InputBegan:Connect(function(Input)
-						if UserInputService:GetFocusedTextBox() then return end
-						if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and not Bind.Binding then
-							if holdmode then
-								Holding = true
-								callback(Holding)
+						Option.MouseButton1Click:Connect(function()
+							if table.find(Dropdown.Value, option) then				
+								table.remove(Dropdown.Value, table.find(Dropdown.Value, option))
+								DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
+								callback(Dropdown.Value)
 							else
-								callback()
+								table.insert(Dropdown.Value, option)
+								DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
+								callback(Dropdown.Value)
 							end
-						elseif Bind.Binding then
-							local Key;
-							pcall(function()
-								if not KeyCheck(BlacklistedKeys, Input.KeyCode) then
-									Key = Input.KeyCode
-								end
-							end)
-							pcall(function()
-								if KeyCheck(WhitelistedMouse, Input.UserInputType) and not Key then
-									Key = Input.UserInputType
-								end
-							end)
-							Key = Key or Bind.Value
-							Bind:Set(Key)
-						end
-					end)
-
-					UserInputService.InputEnded:Connect(function(Input)
-						if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value and holdmode and Holding then
-							Holding = false
-							callback(Holding)
-						end
-					end)
-
-					function Bind:Set(key)
-							pcall(function()
-								self.Binding = false
-								self.Value = key or self.Value
-								self.Value = self.Value.Name or self.Value
-								BindFrame.BText.Text = self.Value
-							end)
-						end
+							Ripple(Option)
+						end)
 
 						task.spawn(function()
-							pcall(function()
-								while task.wait() do
-									BindFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Bind
-									BindFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-									BindFrame.BText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
-								end
-							end)
+							while task.wait() do
+								Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
+								DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+							end
 						end)
-
-						Bind:Set(preset)
-						SolarisLib.Flags[flag] = Bind
-						return Bind
 					end
+				end
 
-				return ItemHold
+				function Dropdown:Refresh(opts,del)
+					if del then
+						for _,v in pairs(DropMain.Holder:GetChildren()) do
+							if v:IsA("TextButton") then
+								v:Destroy()
+								DropMain.Holder.Size = Dropdown.Toggled and UDim2.new(1,0,0,6+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,0)
+								DropMain.Size = Dropdown.Toggled and UDim2.new(1,0,0,38+DropMain.Holder.Layout.AbsoluteContentSize.Y) or UDim2.new(1,0,0,32)
+							end
+						end
+					end
+					AddOptions(opts)
+				end
+
+				DropMain.Btn.MouseButton1Click:Connect(ToggleDrop)
+
+				function Dropdown:Set(val)
+					Dropdown.Value = val
+					DropMain.Btn.Title.Text = text .. ": " .. table.concat(Dropdown.Value, ", ")
+					return callback(Dropdown.Value)
+				end
+
+				task.spawn(function()
+					while task.wait() do
+						DropMain.Btn.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Dropdown
+						DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+						DropMain.Btn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+					end
+				end)
+
+				Dropdown:Refresh(list,false)
+				Dropdown:Set(def)
+				SolarisLib.Flags[flag] = Dropdown
+
+				return Dropdown
 			end
+
+			function ItemHold:Colorpicker(text,preset,flag,callback)
+				local ColorH, ColorS, ColorV = 1, 1, 1
+				local ColorPicker, ColorPreset, DragPreset = {Value = preset, Toggled = false}, game:GetObjects("rbxassetid://7329998014")[1]
+				ColorPreset.Hue.Visible, ColorPreset.Color.Visible = ColorPicker.Toggled, ColorPicker.Toggled
+				ColorPreset.Parent = Section
+				ColorPreset.Btn.Colorpicker.Text = text
+				ColorPreset.Name = text .. "element"
+				ColorPreset.Btn.Box.BackgroundColor3 = preset
+				ColorPreset.Hue.HueGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(0.20, Color3.fromRGB(234, 255, 0)), ColorSequenceKeypoint.new(0.40, Color3.fromRGB(21, 255, 0)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(0, 255, 255)), ColorSequenceKeypoint.new(0.80, Color3.fromRGB(0, 17, 255)), ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 0, 251)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 4))}
+
+				local Color = ColorPreset.Color
+				local Hue = ColorPreset.Hue
+				local HueSelection = ColorPreset.Hue.HueSelection
+				local ColorSelection = ColorPreset.Color.ColorSelection
+				
+				function UpdateColorPicker()
+					ColorPreset.Btn.Box.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
+					Color.BackgroundColor3 = Color3.fromHSV(ColorH, 1, 1)
+					pcall(callback, ColorPreset.Btn.Box.BackgroundColor3)
+				end
+
+				ColorPreset.Btn.MouseButton1Click:Connect(function()
+					ColorPicker.Toggled = not ColorPicker.Toggled
+					TweenService:Create(ColorPreset,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = ColorPicker.Toggled and UDim2.new(1,0,0,120) or UDim2.new(1,0,0,32)}):Play() 
+					ColorPreset.Hue.Visible, ColorPreset.Color.Visible = ColorPicker.Toggled, ColorPicker.Toggled
+				end)
+
+				ColorH = 1 - (math.clamp(HueSelection.AbsolutePosition.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) / Hue.AbsoluteSize.Y)
+				ColorS = (math.clamp(ColorSelection.AbsolutePosition.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) / Color.AbsoluteSize.X)
+				ColorV = 1 - (math.clamp(ColorSelection.AbsolutePosition.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) / Color.AbsoluteSize.Y)
+
+				ColorPreset.Btn.Box.BackgroundColor3 = preset
+				Color.BackgroundColor3 = preset
+				pcall(callback, ColorPreset.Btn.Box.BackgroundColor3)
+
+				Color.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						if ColorInput then ColorInput:Disconnect() end
+						ColorInput = RunService.RenderStepped:Connect(function()
+							local ColorX = (math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) / Color.AbsoluteSize.X)
+							local ColorY = (math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) / Color.AbsoluteSize.Y)
+							ColorSelection.Position = UDim2.new(ColorX, 0, ColorY, 0)
+							ColorS = ColorX
+							ColorV = 1 - ColorY
+							UpdateColorPicker()
+						end)
+					end
+				end)
+
+				Color.InputEnded:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 and ColorInput then
+						ColorInput:Disconnect()
+					end
+				end)
+
+				Hue.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						if HueInput then HueInput:Disconnect() end
+						HueInput = RunService.RenderStepped:Connect(function()
+							local HueY = (math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) / Hue.AbsoluteSize.Y)
+							HueSelection.Position = UDim2.new(0.48, 0, HueY, 0)
+							ColorH = 1 - HueY
+
+							UpdateColorPicker(true)
+						end)
+					end
+				end)
+
+				Hue.InputEnded:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 and HueInput then
+						HueInput:Disconnect()
+					end
+				end)
+
+				task.spawn(function()
+					while task.wait() do
+						ColorPreset.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Colorpicker
+						ColorPreset.Btn.Colorpicker.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+					end
+				end)
+
+				return ColorPicker
+			end
+
+			function ItemHold:Label(text)
+				local Label, LabelFrame = {}, game:GetObjects("rbxassetid://7032552322")[1]
+				LabelFrame.Parent = Section
+				LabelFrame.Title.Text = text
+				LabelFrame.Name = text .. "element"
+
+				function Label:Set(tochange)
+					repeat task.wait() until LabelFrame:FindFirstChild("Title")
+					LabelFrame.Title.Text = tochange
+					LabelFrame.Name = text .. "element"
+				end
+				
+				task.spawn(function()
+					pcall(function()
+						while task.wait() do
+							LabelFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Label
+							LabelFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+						end
+					end)
+				end)
+
+				return Label
+			end
+
+			function ItemHold:Textbox(text,disappear,callback)
+				local Textbox, TextboxFrame = {}, game:GetObjects("rbxassetid://7147292392")[1]
+				TextboxFrame.Parent = Section
+				TextboxFrame.Title.Text = text
+				TextboxFrame.Name = text .. "element"
+
+				TextboxFrame.Box.Changed:Connect(function()
+					repeat task.wait() until TextboxFrame:FindFirstChild("Box")
+					TextboxFrame.Box.Size = UDim2.new(0,TextboxFrame.Box.TextBounds.X + 16,0,22)
+				end)
+
+				TextboxFrame.Box.PlaceholderText = "                  "
+				TextboxFrame.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						TextboxFrame.Box:CaptureFocus()
+					end
+				end)
+
+				TextboxFrame.Box.FocusLost:Connect(function()
+					local txt = TextboxFrame.Box.Text
+					if disappear then TextboxFrame.Box.Text = "" end  
+					return callback(txt)
+				end)
+
+				UserInputService.InputBegan:Connect(function(input)
+					if input.KeyCode == Enum.KeyCode.Escape and TextboxFrame:FindFirstChild("Box") and TextboxFrame.Box:IsFocused() then
+						TextboxFrame.Box:ReleaseFocus()
+					end
+				end)
+					
+				task.spawn(function()
+					while task.wait() do
+						if not TextboxFrame:FindFirstChild("Title") then continue end;
+						TextboxFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Textbox
+						TextboxFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+						TextboxFrame.Box.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextboxFrame
+						TextboxFrame.Box.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+					end
+				end)
+
+				return Textbox
+			end
+
+			function ItemHold:Bind(text, preset, holdmode, flag, callback)
+				local Bind, BindFrame = {Value, Binding = false, Holding = false}, game:GetObjects("rbxassetid://7126874744")[1]
+				BindFrame.Parent = Section
+				BindFrame.Title.Text = text
+				BindFrame.Name = text .. "element"
+
+				BindFrame.InputEnded:Connect(function(Input)
+					if Input.UserInputType == Enum.UserInputType.MouseButton1 and not Bind.Binding then
+						Bind.Binding = true
+						BindFrame.BText.Text = "..."
+					end
+				end)
+
+				UserInputService.InputBegan:Connect(function(Input)
+					if UserInputService:GetFocusedTextBox() then return end
+					if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and not Bind.Binding then
+						if holdmode then
+							Holding = true
+							callback(Holding)
+						else
+							callback()
+						end
+					elseif Bind.Binding then
+						local Key;
+						pcall(function()
+							if not KeyCheck(BlacklistedKeys, Input.KeyCode) then
+								Key = Input.KeyCode
+							end
+						end)
+						pcall(function()
+							if KeyCheck(WhitelistedMouse, Input.UserInputType) and not Key then
+								Key = Input.UserInputType
+							end
+						end)
+						Key = Key or Bind.Value
+						Bind:Set(Key)
+					end
+				end)
+
+				UserInputService.InputEnded:Connect(function(Input)
+					if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value and holdmode and Holding then
+						Holding = false
+						callback(Holding)
+					end
+				end)
+
+				function Bind:Set(key)
+					pcall(function()
+						self.Binding = false
+						self.Value = key or self.Value
+						self.Value = self.Value.Name or self.Value
+						BindFrame.BText.Text = self.Value
+					end)
+				end
+
+				task.spawn(function()
+					pcall(function()
+						while task.wait() do
+							BindFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Bind
+							BindFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+							BindFrame.BText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+						end
+					end)
+				end)
+
+				Bind:Set(preset)
+				SolarisLib.Flags[flag] = Bind
+				
+				return Bind
+			end
+
+			return ItemHold
+		end
 
 		return SectionHold
 	end
-	
+
 	return TabHolder
 end
 
