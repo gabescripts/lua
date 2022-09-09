@@ -339,6 +339,7 @@ function SolarisLib:New(Config)
 					end
 				end)
 			end
+
 			function TabHold:BindSetting(title, desc, def, path)
 				local value = SolarisLib.Settings[path] or def
 				local Bind = BindPreset:Clone()
@@ -384,6 +385,7 @@ function SolarisLib:New(Config)
 					end)
 				end)
 			end
+
 			function TabHold:Dropdown(title, desc, list, def, path)
 				local opened = false
 				local value = SolarisLib.Settings[path] or def
@@ -649,13 +651,17 @@ function SolarisLib:New(Config)
 				end)
 			end
 
-			function ItemHold:Toggle(text,def,flag,callback)
+			function ItemHold:Toggle(text, def, flag, callback)
 				local Toggle,ToggleMain = {Value = false}, game:GetObjects("rbxassetid://6963155498")[1]
 				ToggleMain.Parent = Section
 				ToggleMain.ToggleText.Text = text
 				ToggleMain.Name = text .. "element"
 
-				function Toggle:Set(value)
+				function Toggle:Set(value, onchange)
+					if text and ToggleMain:FindFirstChild("ToggleText") then
+						ToggleMain.ToggleText.Text = onchange
+					end
+
 					Toggle.Value = value
 					TweenService:Create(ToggleMain.ToggleFrame.ToggleToggled.ToggleIco,TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency= Toggle.Value and 0 or 1}):Play()
 					TweenService:Create(ToggleMain.ToggleFrame.ToggleToggled.ToggleIco,TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size= Toggle.Value and UDim2.new(1,-2,1,-2) or UDim2.new(1,-6,1,-6)}):Play()
@@ -680,6 +686,7 @@ function SolarisLib:New(Config)
 
 				Toggle:Set(def)
 				SolarisLib.Flags[flag] = Toggle
+
 				return Toggle
 			end
 
@@ -714,7 +721,6 @@ function SolarisLib:New(Config)
 
 					if tochange and SliderMain:FindFirstChild("SliderText") then
 						SliderMain.SliderText.Text = tochange
-						SliderMain.Name = text .. "element"
 					end
 
 					return callback(Slider.Value)
@@ -732,6 +738,7 @@ function SolarisLib:New(Config)
 
 				Slider:Set(start)
 				SolarisLib.Flags[flag] = Slider
+
 				return Slider
 			end
 
@@ -809,6 +816,7 @@ function SolarisLib:New(Config)
 				Dropdown:Refresh(list, false)
 				Dropdown:Set(def)
 				SolarisLib.Flags[flag] = Dropdown
+
 				return Dropdown
 			end
 
@@ -984,7 +992,6 @@ function SolarisLib:New(Config)
 				function Label:Set(tochange)
 					repeat task.wait() until LabelFrame:FindFirstChild("Title")
 					LabelFrame.Title.Text = tochange
-					LabelFrame.Name = text .. "element"
 				end
 				
 				task.spawn(function()
