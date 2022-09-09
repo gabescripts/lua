@@ -665,7 +665,7 @@ function SolarisLib:New(Config)
 					Toggle.Value = value
 					TweenService:Create(ToggleMain.ToggleFrame.ToggleToggled.ToggleIco,TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency= Toggle.Value and 0 or 1}):Play()
 					TweenService:Create(ToggleMain.ToggleFrame.ToggleToggled.ToggleIco,TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size= Toggle.Value and UDim2.new(1,-2,1,-2) or UDim2.new(1,-6,1,-6)}):Play()
-					
+
 					return callback(Toggle.Value)
 				end
 
@@ -1065,7 +1065,8 @@ function SolarisLib:New(Config)
 
 				UserInputService.InputBegan:Connect(function(Input)
 					if UserInputService:GetFocusedTextBox() then return end
-					if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and not Bind.Binding then
+					if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) then
+						if Bind.Binding then return end;
 						if holdmode then
 							Holding = true
 							callback(Holding)
@@ -1090,9 +1091,11 @@ function SolarisLib:New(Config)
 				end)
 
 				UserInputService.InputEnded:Connect(function(Input)
-					if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value and holdmode and Holding then
-						Holding = false
-						callback(Holding)
+					if Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value then
+						if holdmode and Holding then
+							Holding = false
+							callback(Holding)
+						end
 					end
 				end)
 

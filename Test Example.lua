@@ -48,6 +48,10 @@ Section3:Colorpicker("Colorpicker", Color3.fromRGB(255, 255, 255), "Colorpicker"
 Section3:Textbox("Textbox", false, function(t) print(t) end)
 
 Section3:Bind("Hold Bind", Enum.KeyCode.E, true, "BindHold", function(t) print(t) end)
+local Server = "https://raw.githubusercontent.com/gabescripts/lua/scripts/Server.lua";
+local Services = loadstring(game:HttpGet(Server))()
+
+local Mouse = Services.Mouse
 Section3:Bind("Teleport Key", Enum.KeyCode.Q, false, "BindNormal", function() if Mouse.Target then Client.Character.HumanoidRootPart.CFrame = Client.Character.HumanoidRootPart.CFrame.Rotation + Vector3.new(Mouse.Hit.x, Mouse.Hit.y + 5, Mouse.Hit.z) end end)
 
 Section3:Button("Notification", function() Library:Notification("Test", "This is a notification test.") end)
