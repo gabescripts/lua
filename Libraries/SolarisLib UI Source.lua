@@ -1057,7 +1057,7 @@ function SolarisLib:New(Config)
 				BindFrame.Name = text .. "element"
 
 				BindFrame.InputEnded:Connect(function(Input, Typing)
-					if not Typing and Input.UserInputType == Enum.UserInputType.MouseButton1 then
+					if Input.UserInputType == Enum.UserInputType.MouseButton1 then
 						if Bind.Binding then return end
 						Bind.Binding = true
 						BindFrame.BText.Text = "..."
@@ -1065,7 +1065,7 @@ function SolarisLib:New(Config)
 				end)
 
 				UserInputService.InputBegan:Connect(function(Input, Typing)
-					if Typing or UserInputService:GetFocusedTextBox() then return end
+					if UserInputService:GetFocusedTextBox() then return end
 					if (Input.KeyCode.Name == Bind.Value or Input.UserInputType.Name == Bind.Value) and not Bind.Binding then
 						if holdmode then
 							Holding = true

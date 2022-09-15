@@ -6,7 +6,7 @@ do pcall(function()
   end
 end) end
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GabrasticYT/Roblox/Exploit-Related/Libraries/SolarisLib%20UI%20Source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/gabescripts/lua/scripts/Libraries/SolarisLib%20UI%20Source.lua"))()
 local Window = Library:New({Name = "Game Name", FolderToSave = "SolarisLibStuff"})
 
 local Tab1 = Window:Tab("Tab 1")
