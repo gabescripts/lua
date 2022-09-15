@@ -35,6 +35,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Sword Factory X"] = "https://www.roblox.com/games/9103460924/",
   ["Strucid"] = "https://www.roblox.com/games/2377868063/",
   ["Toy Empire Tycoon"] = "https://www.roblox.com/games/10492810428/",
   ["Ro-Ghoul"] = "https://www.roblox.com/games/914010731/",
