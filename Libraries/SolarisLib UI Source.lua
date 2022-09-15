@@ -798,6 +798,7 @@ function SolarisLib:New(Config)
 				DropMain.Btn.MouseButton1Click:Connect(ToggleDrop)
 
 				function Dropdown:Set(val)
+					print(text, val)
 					Dropdown.Value = val
 					DropMain.Btn.Title.Text = text .. ": " .. val
 					return callback(Dropdown.Value)
