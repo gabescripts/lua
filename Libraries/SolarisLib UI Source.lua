@@ -14,7 +14,7 @@ local Mouse = LocalPlayer:GetMouse()
 local http = game:GetService("HttpService")
 
 local WhitelistedMouse = {Enum.UserInputType.MouseButton1, Enum.UserInputType.MouseButton2,Enum.UserInputType.MouseButton3}
-local BlacklistedKeys = {Enum.KeyCode.Unknown,Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.Up,Enum.KeyCode.Left,Enum.KeyCode.Down,Enum.KeyCode.Right,Enum.KeyCode.Slash,Enum.KeyCode.Backspace,Enum.KeyCode.Escape}
+local BlacklistedKeys = {Enum.KeyCode.Unknown,Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.Up,Enum.KeyCode.Left,Enum.KeyCode.Down,Enum.KeyCode.Right,Enum.KeyCode.Slash,Enum.KeyCode.Backspace,Enum.KeyCode.Escape,Enum.KeyCode.Insert}
 
 function KeyCheck(tab, key)
 	for i, v in next, tab do
@@ -798,7 +798,8 @@ function SolarisLib:New(Config)
 				DropMain.Btn.MouseButton1Click:Connect(ToggleDrop)
 
 				function Dropdown:Set(val)
-					print(text, val)
+					if not val or not text then return end;
+
 					Dropdown.Value = val
 					DropMain.Btn.Title.Text = text .. ": " .. val
 					return callback(Dropdown.Value)
@@ -1074,10 +1075,10 @@ function SolarisLib:New(Config)
 						else
 							callback()
 						end
-					elseif Bind.Binding then
+					elseif Bind.Binding and not Typing then
 						local Key = Input.KeyCode;
-						if not CheckKey(BlacklistedKeys, Key) then Key = Input.KeyCode end
-						if CheckKey(WhitelistedMouse, Input.UserInputType) and not Key then Key = Input.UserInputType end
+						if not KeyCheck(BlacklistedKeys, Key) then Key = Input.KeyCode end
+						if KeyCheck(WhitelistedMouse, Input.UserInputType) and not Key then Key = Input.UserInputType end
 						Bind:Set(Key)
 					end
 				end)
