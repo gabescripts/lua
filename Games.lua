@@ -2,7 +2,7 @@
 
 local Supported = {
   
-  --// Currently Supports 24 Games
+  --// Currently Supports 26 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/09/2022
@@ -30,7 +30,7 @@ local Supported = {
   ["Stair Tappers"] = "https://www.roblox.com/games/9733390246/", --// 09/02/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
   ["Lost Rooms"] = "https://www.roblox.com/games/9431770682/", --// 09/16/2022
-  
+
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", --// Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", --// Patched
 
