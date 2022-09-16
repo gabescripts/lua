@@ -29,7 +29,8 @@ local Supported = {
   ["The Rake REMASTERED"] = "https://www.roblox.com/games/2413927524/", --// 08/31/2022
   ["Stair Tappers"] = "https://www.roblox.com/games/9733390246/", --// 09/02/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
-
+  ["Lost Rooms"] = "https://www.roblox.com/games/9431770682/", --// 09/16/2022
+  
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", --// Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", --// Patched
 
