@@ -5,8 +5,8 @@ local Supported = {
   --// Currently Supports 26 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
-  ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/09/2022
-  ["The Booth Plaza"] = "https://www.roblox.com/games/7115420363/", --// 08/14/2022
+  ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/21/2022
+  ["The Booth Plaza"] = "https://www.roblox.com/games/10913380117/", --// 08/14/2022
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/", --// 06/09/2022
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/", --// 08/16/2022
   ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/", --// 08/06/2022
@@ -22,6 +22,7 @@ local Supported = {
   ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/", --// 07/08/2022
   ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/", --// 08/25/2022
   ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/", --// 06/16/2022
+  ["Lost Rooms"] = "https://www.roblox.com/games/9431770682/", --// 09/16/2022
   ["3008 [2.71]"] = "https://www.roblox.com/games/2768379856/", --// 08/12/2022
   ["Driving Simulator"] = "https://www.roblox.com/games/4410049285/", --// 08/20/2022
   ["Race Clicker"] = "https://www.roblox.com/games/9285238704/",--// 08/20/2022
@@ -29,7 +30,6 @@ local Supported = {
   ["The Rake REMASTERED"] = "https://www.roblox.com/games/2413927524/", --// 08/31/2022
   ["Stair Tappers"] = "https://www.roblox.com/games/9733390246/", --// 09/02/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
-  ["Lost Rooms"] = "https://www.roblox.com/games/9431770682/", --// 09/16/2022
 
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", --// Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", --// Patched
