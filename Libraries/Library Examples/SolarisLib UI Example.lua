@@ -6,7 +6,7 @@ do pcall(function()
   end
 end) end
 
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/w5CXLiZX"))()
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/UWb2WB9g"))()
 local Window = Library:New({Name = "Game Name", FolderToSave = "SolarisLibStuff"})
 
 local Tab1 = Window:Tab("Tab 1")

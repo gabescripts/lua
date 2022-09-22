@@ -210,16 +210,6 @@ function SolarisLib:Notification(title, desc)
 end    
 
 function SolarisLib:New(Config)
-	if not isfolder(Config.FolderToSave) then makefolder(Config.FolderToSave) end
-	if not isfolder(Config.FolderToSave .. "/configs") then makefolder(Config.FolderToSave .. "/configs") end
-	
-	if not isfile(Config.FolderToSave .. "/settings.txt") then
-		local content = {}
-		for i,v in pairs(SolarisLib.Settings) do content[i] = v end
-		writefile(Config.FolderToSave .. "/settings.txt", tostring(http:JSONEncode(content)))
-	end    
-	SolarisLib.Settings = http:JSONDecode(readfile(Config.FolderToSave .. "/settings.txt"))
-
 	local closebindbinding = false
 	local fs = false
 	local tabcount = 0
@@ -259,12 +249,6 @@ function SolarisLib:New(Config)
 		SFrame.TopBar.CloseBtn.MouseButton1Click:Connect(function()
 			SettingsFrame.Visible = false
 		end)
-
-		function SaveSettings()
-			local content = {}
-			for i,v in pairs(SolarisLib.Settings) do content[i] = v end
-			writefile(Config.FolderToSave .. "/settings.txt", tostring(http:JSONEncode(content)))
-		end
 		
 		task.spawn(function()
 			pcall(function()
@@ -323,7 +307,6 @@ function SolarisLib:New(Config)
 					Tween(val)
 					SolarisLib.Settings[path] = val
 					value = val
-					SaveSettings()
 				end
 
 				Tween(value)
@@ -353,7 +336,6 @@ function SolarisLib:New(Config)
 					value = value.Name or value
 					Bind.BText.Text = value
 					SolarisLib.Settings[path] = value
-					SaveSettings()
 				end
 				SetValue(value)
 
@@ -425,7 +407,6 @@ function SolarisLib:New(Config)
 							value = option
 							SolarisLib.Settings[path] = value
 							Dropdown.Main.Current.Text = value
-							SaveSettings()
 						end)
 
 						task.spawn(function()
@@ -548,14 +529,6 @@ function SolarisLib:New(Config)
 				warn("cfg loader - could not find", a ,b )
 			end
 		end)
-	end
-	
-	function SolarisLib:SaveCfg(name)
-		local content = {}
-		for i,v in pairs(SolarisLib.Flags) do
-			content[i] = v.Value
-		end
-		writefile(Config.FolderToSave .. "/configs/" .. name .. ".txt", tostring(http:JSONEncode(content)))
 	end
 
 	local TabHolder = {}
