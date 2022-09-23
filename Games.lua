@@ -39,9 +39,11 @@ local Supported = {
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/",
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/",
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/",
+  ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/",
 
   --// Games To Be Added
 
+  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/",
   ["Panik"] = "https://www.roblox.com/games/8511615377/",
   ["Drive-Thru Tycoon"] = "https://www.roblox.com/games/10256992208/",
   ["Sword Factory X"] = "https://www.roblox.com/games/9103460924/",
