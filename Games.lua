@@ -36,6 +36,12 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/",
+  ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/",
+  ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/",
+
+  --// Games To Be Added
+
   ["Panik"] = "https://www.roblox.com/games/8511615377/",
   ["Drive-Thru Tycoon"] = "https://www.roblox.com/games/10256992208/",
   ["Sword Factory X"] = "https://www.roblox.com/games/9103460924/",
@@ -55,7 +61,6 @@ local Supported = {
   ["Poo Tycoon"] = "https://www.roblox.com/games/9969599224/",
   ["nico's nextbots"] = "https://www.roblox.com/games/10118559731/",
   ["Gun Simulator"] = "https://www.roblox.com/games/4036494886/",
-  ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/",
   ["5v5 MM2"] = "https://www.roblox.com/games/8665470667/",
   ["Bid Battles"] = "https://www.roblox.com/games/9603033881/",
   ["Frog Simulator"] = "https://www.roblox.com/games/5598577415/",
