@@ -5,7 +5,7 @@ local Supported = {
   --// Currently Supports 26 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
-  ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/21/2022
+  ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/27/2022
   ["The Booth Plaza"] = "https://www.roblox.com/games/10913380117/", --// 08/14/2022
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/", --// 06/09/2022
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/", --// 08/16/2022
