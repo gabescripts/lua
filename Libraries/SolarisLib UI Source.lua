@@ -614,12 +614,6 @@ function SolarisLib:New(Config)
 				Button.MouseEnter:Connect(function() Holding = true; end)
 				Button.MouseLeave:Connect(function() Holding = false; end)
 
-				function Button:Set(text)
-					if Button:FindFirstChild("ButtonText") then
-						Button.ButtonText.Text = text
-					end
-				end
-
 				task.spawn(function()
 					pcall(function()
 						while task.wait() do
