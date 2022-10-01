@@ -610,7 +610,7 @@ function SolarisLib:New(Config)
 				ButtonMain.ButtonText.Text = text
 				ButtonMain.ClipsDescendants = true
 				
-				ButtonMain.MouseButton1Click:Connect(function() callback(); Ripple(ButtonMain); end)
+				ButtonMain.MouseButton1Click:Connect(function() coroutine.wrap(Ripple)(ButtonMain); callback(); end)
 				ButtonMain.MouseEnter:Connect(function() Holding = true; end)
 				ButtonMain.MouseLeave:Connect(function() Holding = false; end)
 
