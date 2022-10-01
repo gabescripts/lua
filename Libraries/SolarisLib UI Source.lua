@@ -604,24 +604,32 @@ function SolarisLib:New(Config)
 			local ItemHold = {}
 			function ItemHold:Button(text,callback)
 				local Holding = false
-				local Button = game:GetObjects("rbxassetid://6937142338")[1]
-				Button.Parent = Section
-				Button.Name = text .. "element"
-				Button.ButtonText.Text = text
-				Button.ClipsDescendants = true
+				local Button, ButtonMain = {}, game:GetObjects("rbxassetid://6937142338")[1]
+				ButtonMain.Parent = Section
+				ButtonMain.Name = text .. "element"
+				ButtonMain.ButtonText.Text = text
+				ButtonMain.ClipsDescendants = true
 				
-				Button.MouseButton1Click:Connect(function() callback(); Ripple(Button); end)
-				Button.MouseEnter:Connect(function() Holding = true; end)
-				Button.MouseLeave:Connect(function() Holding = false; end)
+				ButtonMain.MouseButton1Click:Connect(function() callback(); Ripple(ButtonMain); end)
+				ButtonMain.MouseEnter:Connect(function() Holding = true; end)
+				ButtonMain.MouseLeave:Connect(function() Holding = false; end)
+
+        function Button:Set(text)
+					if ButtonMain:FindFirstChild("ButtonText") then
+						ButtonMain.ButtonText.Text = text
+					end
+				end
 
 				task.spawn(function()
 					pcall(function()
 						while task.wait() do
-							Button.BackgroundColor3 = Holding and SolarisLib.Themes[SolarisLib.Settings.Theme].ButtonHold or SolarisLib.Themes[SolarisLib.Settings.Theme].Button
-							Button.ButtonText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
+							ButtonMain.BackgroundColor3 = Holding and SolarisLib.Themes[SolarisLib.Settings.Theme].ButtonHold or SolarisLib.Themes[SolarisLib.Settings.Theme].Button
+							ButtonMain.ButtonText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
 						end
 					end)
 				end)
+
+        return Button
 			end
 
 			function ItemHold:Toggle(text, def, flag, callback)
