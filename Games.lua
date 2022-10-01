@@ -2,7 +2,7 @@
 
 local Supported = {
   
-  --// Currently Supports 27 Games
+  --// Currently Supports 28 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/27/2022
@@ -31,6 +31,7 @@ local Supported = {
   ["Stair Tappers"] = "https://www.roblox.com/games/9733390246/", --// 09/02/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/", --// 09/30/2022
+  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/01/2022
 
   --// Currently Working On Adding
 
@@ -43,7 +44,6 @@ local Supported = {
 
   --// Games To Be Added
 
-  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/",
   ["Panik"] = "https://www.roblox.com/games/8511615377/",
   ["Drive-Thru Tycoon"] = "https://www.roblox.com/games/10256992208/",
   ["Sword Factory X"] = "https://www.roblox.com/games/9103460924/",
