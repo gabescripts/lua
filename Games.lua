@@ -31,7 +31,7 @@ local Supported = {
   ["Stair Tappers"] = "https://www.roblox.com/games/9733390246/", --// 09/02/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/", --// 09/30/2022
-  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/02/2022
+  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
 
   --// Currently Working On Adding
 
