@@ -44,6 +44,7 @@ local Supported = {
 
   --// Games To Be Added
 
+  ["Field of Battle"] = "https://www.roblox.com/games/147536429/",
   ["Sword Simulator"] = "https://www.roblox.com/games/7026949294",
   ["Panik"] = "https://www.roblox.com/games/8511615377/",
   ["Drive-Thru Tycoon"] = "https://www.roblox.com/games/10256992208/",
