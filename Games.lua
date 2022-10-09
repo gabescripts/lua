@@ -39,6 +39,7 @@ local Supported = {
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 90% Complete
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
+  ["Rat Washing Tycoon"] = "https://www.roblox.com/games/10347946161/", --// 0% Complete
 
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", --// Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", --// Patched
