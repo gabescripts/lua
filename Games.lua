@@ -45,6 +45,10 @@ local Supported = {
 
   --// Games To Be Added
 
+  ["2019 Booga Booga "] = "https://www.roblox.com/games/10758111998/",
+  ["Mega Mansion Tycoon"] = "https://www.roblox.com/games/8328351891/",
+  ["PLS CAPTURE"] = "https://www.roblox.com/games/10859465529/",
+  ["Refinery Caves"] = "https://www.roblox.com/games/8726743209/",
   ["Field of Battle"] = "https://www.roblox.com/games/147536429/",
   ["Sword Simulator"] = "https://www.roblox.com/games/7026949294",
   ["Panik"] = "https://www.roblox.com/games/8511615377/",
