@@ -2,7 +2,7 @@
 
 local Supported = {
   
-  --// Currently Supports 29 Games
+  --// Currently Supports 30 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 09/27/2022
@@ -33,6 +33,7 @@ local Supported = {
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/", --// 09/30/2022
   ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
+  ["Bloody Ragdoll Engine"] = "https://www.roblox.com/games/10702033108/", --// 10/10/2022
 
   --// Currently Working On Adding
 
@@ -40,7 +41,6 @@ local Supported = {
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
   ["Rat Washing Tycoon"] = "https://www.roblox.com/games/10347946161/", --// 0% Complete
-  ["Bloody Ragdoll Engine"] = "https://www.roblox.com/games/10702033108/", --// 40% Complete
 
   ["Fruit Juice Tycoon"] = "https://www.roblox.com/games/6755746130/", --// Broken
   ["De Pride Isle Sanatorium"] = "https://www.roblox.com/games/3522803956/", --// Patched
