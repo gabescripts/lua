@@ -33,7 +33,7 @@ local Supported = {
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/", --// 09/30/2022
   ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
-  ["Bloody Ragdoll Engine"] = "https://www.roblox.com/games/10702033108/", --// 10/10/2022
+  ["Bloody Ragdoll Engine"] = "https://www.roblox.com/games/10702033108/", --// 10/12/2022
 
   --// Currently Working On Adding
 
