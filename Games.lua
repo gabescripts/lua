@@ -48,6 +48,8 @@ local Supported = {
 
   --// Games To Be Added
 
+  ["Oil Warfare Tycoon"] = "https://www.roblox.com/games/4639625707/",
+  ["Grapple People Simulator"] = "https://www.roblox.com/games/6338482540/",
   ["Project Delta"] = "https://www.roblox.com/games/7336302630/",
   ["2019 Booga Booga "] = "https://www.roblox.com/games/10758111998/",
   ["Mega Mansion Tycoon"] = "https://www.roblox.com/games/8328351891/",
