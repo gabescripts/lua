@@ -9,7 +9,7 @@ local Supported = {
   ["The Booth Plaza"] = "https://www.roblox.com/games/10913380117/", --// 08/14/2022
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/", --// 06/09/2022
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/", --// 08/16/2022
-  ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/", --// 08/06/2022
+  ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/", --// 10/16/2022
   ["CHAOS"] = "https://www.roblox.com/games/6441847031", --// 10/12/2022
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/" --// 08/27/2022
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/", --// 06/26/2022
@@ -34,7 +34,7 @@ local Supported = {
   ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
   ["Bloody Ragdoll Engine"] = "https://www.roblox.com/games/10702033108/", --// 10/12/2022
-  ["2019 Booga Booga"] = "https://www.roblox.com/games/10758111998/", --// 10/15/2022
+  ["Booga Booga REBORN"] = "https://www.roblox.com/games/10758111998/", --// 10/15/2022
 
   --// Currently Working On Adding
 
