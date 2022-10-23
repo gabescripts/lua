@@ -1019,7 +1019,12 @@ function SolarisLib:New(Config)
 						TextboxFrame.Box:ReleaseFocus()
 					end
 				end)
-					
+
+				function Textbox:Set(text)
+					repeat task.wait() until TextboxFrame:FindFirstChild("Title")
+					TextboxFrame.Title.Text = text
+				end
+
 				task.spawn(function()
 					while task.wait() do
 						if not TextboxFrame:FindFirstChild("Title") then continue end;
