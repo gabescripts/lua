@@ -34,7 +34,7 @@ local Supported = {
   ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
   ["Bloody Ragdoll Engine"] = "https://www.roblox.com/games/10702033108/", --// 10/12/2022
-  ["Booga Booga REBORN"] = "https://www.roblox.com/games/10758111998/", --// 10/22/2022
+  ["Booga Booga REBORN"] = "https://www.roblox.com/games/10758111998/", --// 10/25/2022
   ["Realistic Guns (FPS Shooter)"] = "https://www.roblox.com/games/6514923093/", --// 10/20/2022
 
   --// Currently Working On Adding
