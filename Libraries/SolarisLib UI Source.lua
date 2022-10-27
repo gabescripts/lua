@@ -704,8 +704,6 @@ function SolarisLib:New(Config)
 					if tochange and SliderMain:FindFirstChild("SliderText") then
 						SliderMain.SliderText.Text = tochange
 					end
-
-					return callback(Slider.Value)
 				end
 
 				task.spawn(function()
