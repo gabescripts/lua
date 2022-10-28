@@ -2,7 +2,7 @@
 
 local Supported = {
   
-  --// Currently Supports 34 Games
+  --// Currently Supports 35 Games
  
   ["Rate My Avatar"] = "https://www.roblox.com/games/6708206173/", --// 08/13/2022
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 10/15/2022
@@ -38,10 +38,10 @@ local Supported = {
   ["Realistic Guns (FPS Shooter)"] = "https://www.roblox.com/games/6514923093/", --// 10/20/2022
   ["Grapple People Simulator"] = "https://www.roblox.com/games/6338482540/", --// 10/25/2022
   ["Aimstars FPS AIM TRAINER"] = "https://www.roblox.com/games/5153937061/", --// 10/26/2022
+  ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 10/29/2022
 
   --// Currently Working On Adding
 
-  ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 90% Complete
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
   ["Rat Washing Tycoon"] = "https://www.roblox.com/games/10347946161/", --// 0% Complete
