@@ -8,7 +8,7 @@ local Supported = {
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 10/15/2022
   ["The Booth Plaza"] = "https://www.roblox.com/games/10913380117/", --// 08/14/2022
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/", --// 06/09/2022
-  ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/", --// 08/16/2022
+  ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/", --// 11/11/2022
   ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/", --// 10/29/2022
   ["CHAOS"] = "https://www.roblox.com/games/6441847031", --// 10/12/2022
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/" --// 08/27/2022
@@ -38,10 +38,10 @@ local Supported = {
   ["Grapple People Simulator"] = "https://www.roblox.com/games/6338482540/", --// 10/25/2022
   ["Aimstars FPS AIM TRAINER"] = "https://www.roblox.com/games/5153937061/", --// 10/26/2022
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 10/29/2022
+  ["Race Clicker"] = "https://www.roblox.com/games/9285238704/",--// 11/11/2022
 
   --// Currently Working On Adding
 
-  ["Race Clicker"] = "https://www.roblox.com/games/9285238704/",--// Patched
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
   ["Rat Washing Tycoon"] = "https://www.roblox.com/games/10347946161/", --// 0% Complete
