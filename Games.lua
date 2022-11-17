@@ -42,6 +42,7 @@ local Supported = {
 
   --// Currently Working On Adding
 
+  ["making memes at 3 AM tycoon"] = "https://www.roblox.com/games/11346342371/", --// 20% Complete
   ["Slap Battles"] = "https://www.roblox.com/games/6403373529/", --// 30% Complete
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
