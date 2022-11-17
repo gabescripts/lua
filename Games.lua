@@ -38,11 +38,11 @@ local Supported = {
   ["Grapple People Simulator"] = "https://www.roblox.com/games/6338482540/", --// 10/25/2022
   ["Aimstars FPS AIM TRAINER"] = "https://www.roblox.com/games/5153937061/", --// 10/26/2022
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 10/29/2022
-  ["Race Clicker"] = "https://www.roblox.com/games/9285238704/",--// 11/11/2022
+  ["Race Clicker"] = "https://www.roblox.com/games/9285238704/", --// 11/11/2022
+  ["making memes at 3 AM tycoon"] = "https://www.roblox.com/games/11346342371/", --// 11/17/2022
 
   --// Currently Working On Adding
 
-  ["making memes at 3 AM tycoon"] = "https://www.roblox.com/games/11346342371/", --// 99% Complete
   ["Slap Battles"] = "https://www.roblox.com/games/6403373529/", --// 30% Complete
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
