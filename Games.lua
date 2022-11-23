@@ -37,14 +37,14 @@ local Supported = {
   ["Aimstars FPS AIM TRAINER"] = "https://www.roblox.com/games/5153937061/", --// 11/22/2022
   ["Realistic Guns (FPS Shooter)"] = "https://www.roblox.com/games/6514923093/", --// 10/20/2022
   ["making memes in your basement 3 AM tycoon"] = "https://www.roblox.com/games/11346342371/", --// 11/17/2022
-  
+
+  ["Zombie Merge Tycoon"] = "https://www.roblox.com/games/11196588443/", --// 11/23/2022
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
   ["Grapple People Simulator"] = "https://www.roblox.com/games/6338482540/", --// 10/25/2022
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 10/29/2022
 
   --// Currently Working On Adding
 
-  ["Zombie Merge Tycoon"] = "https://www.roblox.com/games/11196588443/", --// 60% Complete
   ["Slap Battles"] = "https://www.roblox.com/games/6403373529/", --// 30% Complete
   ["Jigsaw Puzzles"] = "https://www.roblox.com/games/8797598774/", --// 10% Complete
   ["Skyfall"] = "https://www.roblox.com/games/10059607606/", --// 10% Complete
