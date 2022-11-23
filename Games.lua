@@ -55,6 +55,7 @@ local Supported = {
 
   --// Games To Be Added
 
+  ["School of Hierarchy"] = "https://www.roblox.com/games/6464928417/",
   ["brawl 2"] = "https://www.roblox.com/games/3255508650/",
   ["Oil Warfare Tycoon"] = "https://www.roblox.com/games/4639625707/",
   ["Project Delta"] = "https://www.roblox.com/games/7336302630/",
