@@ -39,9 +39,9 @@ local Supported = {
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/", --// 06/26/2022
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", --// 06/24/2022
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/", --// 06/21/2022
+  ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/", --// 06/16/2022
   ["Flee the Facility"] = "https://www.roblox.com/games/893973440/", --// 06/15/2022
   ["Catalog Avatar Creator"] = "https://www.roblox.com/games/7041939546/", --// 06/09/2022
-  ["Goal Kick Simulator"] = "https://www.roblox.com/games/9281034297/", --// 06/16/2022
 
   --// Currently Working On Adding
 
