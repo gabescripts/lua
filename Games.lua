@@ -5,6 +5,7 @@ local Supported = {
   
   --// Currently Supports 37 Games
  
+  ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/" --// 11/24/2022
   ["Zombie Merge Tycoon"] = "https://www.roblox.com/games/11196588443/", --// 11/23/2022
   ["Aimstars FPS AIM TRAINER"] = "https://www.roblox.com/games/5153937061/", --// 11/22/2022
   ["Michael's Zombies"] = "https://www.roblox.com/games/8054462345/", --// 11/21/2022
@@ -27,7 +28,6 @@ local Supported = {
   ["Lost Rooms"] = "https://www.roblox.com/games/9431770682/", --// 09/16/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
   ["Stair Tappers"] = "https://www.roblox.com/games/9733390246/", --// 09/02/2022
-  ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/" --// 08/27/2022
   ["Gumball Factory Tycoon"] = "https://www.roblox.com/games/9976239895/", --// 08/25/2022
   ["Driving Simulator"] = "https://www.roblox.com/games/4410049285/", --// 08/20/2022
   ["The Booth Plaza"] = "https://www.roblox.com/games/10913380117/", --// 08/14/2022
