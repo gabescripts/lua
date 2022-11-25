@@ -5,6 +5,7 @@ local Supported = {
   
   --// Currently Supports 37 Games
  
+  ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/", --// 11/26/2022
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/" --// 11/24/2022
   ["Zombie Merge Tycoon"] = "https://www.roblox.com/games/11196588443/", --// 11/23/2022
   ["Aimstars FPS AIM TRAINER"] = "https://www.roblox.com/games/5153937061/", --// 11/22/2022
@@ -22,7 +23,7 @@ local Supported = {
   ["Realistic Guns (FPS Shooter)"] = "https://www.roblox.com/games/6514923093/", --// 10/20/2022
   ["The Rake REMASTERED"] = "https://www.roblox.com/games/2413927524/", --// 10/13/2022
   ["CHAOS"] = "https://www.roblox.com/games/6441847031", --// 10/12/2022
-  
+
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
   ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/", --// 09/30/2022
@@ -36,7 +37,6 @@ local Supported = {
   ["3008 [2.71]"] = "https://www.roblox.com/games/2768379856/", --// 08/12/2022
   ["Victory Race"] = "https://www.roblox.com/games/4951858512/", --// 08/08/2022
   ["Victory Jump"] = "https://www.roblox.com/games/10379662529/", --// 08/08/2022
-  ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/", --// 07/08/2022
   ["REFLEX Aim Trainer"] = "https://www.roblox.com/games/5880351207/", --// 06/26/2022
   ["GOD TYCOON"] = "https://www.roblox.com/games/5310443220/", --// 06/24/2022
   ["Princess Tycoon"] = "https://www.roblox.com/games/3804735158/", --// 06/21/2022
