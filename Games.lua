@@ -3,7 +3,7 @@
 
 local Supported = {
   
-  --// Currently Supports 38 Games
+  --// Currently Supports 39 Games
  
   ["Booga Booga Modded"] = "https://www.roblox.com/games/11447840296/", --// 11/26/2022
   ["making scam calls to save your best friend tycoon"] = "https://www.roblox.com/games/11330149751/", --// 11/26/2022
@@ -18,6 +18,7 @@ local Supported = {
   ["Fling Things and People"] = "https://www.roblox.com/games/6961824067/", --// 11/12/2022
   ["Taxi Boss"] = "https://www.roblox.com/games/7305309231/", --// 11/19/2022
   ["Ultra Power Tycoon"] = "https://www.roblox.com/games/8146731988/", --// 11/11/2022
+  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 11/11/2022
   ["Race Clicker"] = "https://www.roblox.com/games/9285238704/", --// 11/11/2022
   ["Infectious Smile"] = "https://www.roblox.com/games/5985232436/", --// 10/29/2022
   ["Apeirophobia"] = "https://www.roblox.com/games/10277607801/", --// 10/29/2022
@@ -27,7 +28,6 @@ local Supported = {
   ["CHAOS"] = "https://www.roblox.com/games/6441847031", --// 10/12/2022
 
   ["Idle Heroes Simulator"] = "https://www.roblox.com/games/9264596435/", --// 10/09/2022
-  ["Training Simulator"] = "https://www.roblox.com/games/10047913840/", --// 10/06/2022
   ["Gun Fighting Tycoon"] = "https://www.roblox.com/games/8571871474/", --// 09/30/2022
   ["Lost Rooms"] = "https://www.roblox.com/games/9431770682/", --// 09/16/2022
   ["Hospital Tycoon"] = "https://www.roblox.com/games/7050008107/", --// 09/06/2022
