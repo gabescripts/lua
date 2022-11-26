@@ -5,6 +5,7 @@ local Supported = {
   
   --// Currently Supports 37 Games
  
+  ["making scam calls to save your best friend tycoon"] = "https://www.roblox.com/games/11330149751/", --// 11/26/2022
   ["Murderers vs. Sheriffs"] = "https://www.roblox.com/games/5154858502/", --// 11/26/2022
   ["Slayer Tycoon"] = "https://www.roblox.com/games/6490016198/" --// 11/24/2022
   ["Zombie Merge Tycoon"] = "https://www.roblox.com/games/11196588443/", --// 11/23/2022
