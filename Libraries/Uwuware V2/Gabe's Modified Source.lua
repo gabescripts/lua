@@ -817,11 +817,11 @@ Library.createList = function(option, parent)
 
     if option.sub then
         option.main = option:getMain()
-        option.main.Size = UDim2.new(1, 0, 0, 42)
+        option.main.Size = UDim2.new(1, 0, 0, 44)
     else
         option.main = Library:Create("Frame", {
             LayoutOrder = option.position,
-            Size = UDim2.new(1, 0, 0, option.text == "nil" and 30 or 42),
+            Size = UDim2.new(1, 0, 0, option.text == "nil" and 30 or 44),
             BackgroundTransparency = 1,
             Parent = parent
         })
@@ -1073,6 +1073,7 @@ Library.createList = function(option, parent)
                     self:SetValue(value)
                     self:Close()
                 end
+                self.callback(self.value, self)
             end
         end)
     end
@@ -1100,6 +1101,18 @@ Library.createList = function(option, parent)
         end
     end
 
+    function option:Reset(newtable)
+      for _, label in next, self.labels do
+        label:Destroy()
+      end
+      self.values = {}
+      self:SetValue("")
+      
+      for _, value in next, newtable do
+        self:AddValue(value)
+      end
+    end
+
     function option:SetValue(value, nocallback)
         if self.multiselect and typeof(value) ~= "table" then
             value = {}
@@ -1107,7 +1120,7 @@ Library.createList = function(option, parent)
                 value[v] = false
             end
         end
-        self.value = typeof(value) == "table" and value or tostring(table.find(self.values, value) and value or self.values[1])
+        self.value = typeof(value) == "table" and value or tostring(table.find(self.values, value) and value or self.values[1] or "")
         Library.flags[self.flag] = self.value
         option.listvalue.Text = " " .. (self.multiselect and getMultiText() or self.value)
         if self.multiselect then
@@ -1132,9 +1145,6 @@ Library.createList = function(option, parent)
                 end
             end
         end
-        if not nocallback then
-            self.callback(self.value)
-        end
     end
     task.delay(1, function()
         if Library then
@@ -1153,7 +1163,7 @@ Library.createList = function(option, parent)
     return option
 end
 
-Library.createBox = function(option, parent, callback)
+Library.createBox = function(option, parent)
     option.hasInit = true
 
     option.main = Library:Create("Frame", {
@@ -1232,7 +1242,7 @@ Library.createBox = function(option, parent, callback)
     inputvalue.FocusLost:connect(function(enter)
         option.holder.BorderColor3 = Color3.new()
         option:SetValue(inputvalue.Text, enter)
-        callback(inputvalue.Text)
+        option.callback(inputvalue.Text, option)
     end)
 
     inputvalue.Focused:connect(function()
@@ -1278,9 +1288,13 @@ Library.createBox = function(option, parent, callback)
             Library.flags[self.flag] = tostring(value)
             self.value = tostring(value)
             inputvalue.Text = self.value
-            self.callback(value, enter)
         end
     end
+
+    function option:GetValue()
+      return inputvalue.Text
+    end
+
     task.delay(1, function()
         if Library then
             option:SetValue(option.value)
@@ -1995,6 +2009,13 @@ function Library:AddTab(title, pos)
                     end
                 end
 
+                function option:Reset(newtable, state)
+                  self.values = {}
+                  for _, value in next, newtable do
+                    self:AddValue(value, state)
+                  end
+                end
+
                 function option:AddColor(subOption)
                     subOption = typeof(subOption) == "table" and subOption or {}
                     subOption.sub = true
@@ -2033,12 +2054,13 @@ function Library:AddTab(title, pos)
                 option.flag = (Library.flagprefix and Library.flagprefix .. " " or "") .. (option.flag or option.text)
                 option.canInit = (option.canInit ~= nil and option.canInit) or true
                 option.tip = option.tip and tostring(option.tip)
+                option.callback = option.callback or function() end
                 Library.flags[option.flag] = option.value
                 table.insert(self.options, option)
                 Library.options[option.flag] = option
 
                 if Library.hasInit and self.hasInit then
-                    Library.createBox(option, self.content, callback or function() end)
+                    Library.createBox(option, self.content)
                 else
                     option.Init = Library.createBox
                 end
@@ -2707,6 +2729,6 @@ local function promptLib()
         Prompt:_open(Message)
         return Prompt,Screen
     end
-end 
+end
 
 return Library
