@@ -2474,8 +2474,10 @@ function Library:AddWarning(warning)
         warning.message.Text = warning.text
 
         repeat task.wait() until answer ~= nil
-        task.spawn(warning.Close)
-        Library.warning = nil
+        task.delay(0.1, function()
+          warning.Close()
+          Library.warning = nil
+        end)
         return answer
     end
 
