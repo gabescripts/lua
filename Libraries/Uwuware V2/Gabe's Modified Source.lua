@@ -2533,11 +2533,12 @@ function Library:Init()
         Position = UDim2.new(0, 6, 0, -1),
         Size = UDim2.new(0, 0, 0, 20),
         BackgroundTransparency = 1,
-        Text = tostring(self.title),
         Font = Enum.Font.Code,
+        RichText = true,
         TextSize = 18,
         TextColor3 = Color3.new(1, 1, 1),
         TextXAlignment = Enum.TextXAlignment.Left,
+        Text = "<font color=\"rgb(0, 155, 0)\">gabe</font>scripts",
         Parent = self.main
     })
 
