@@ -48,8 +48,8 @@ LegitFifth:AddSlider({text = "Model Kick", flag = "ModelKick", min = 5, max = 10
 LegitFifth:AddSlider({text = "Camera Kick", flag = "CameraKick", min = 5, max = 100, value = 100, suffix = "%"})
 
 --// Blatant Section
-local BlatantTab = Library:AddTab("Blatant"); 
-local BlatantColunm1 = BlatantTab:AddColumn();
+local BlatantTab = Library:AddTab("Blatant")
+local BlatantColunm1 = BlatantTab:AddColumn()
 local BlatantMain = BlatantColunm1:AddSection("Auto Wall")
 
 BlatantMain:AddDivider("Main");
