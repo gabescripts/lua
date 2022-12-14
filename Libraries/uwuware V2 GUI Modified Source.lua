@@ -411,7 +411,7 @@ Library.createToggle = function(option, parent)
     end
 
     if option.state ~= nil then
-        delay(1, function()
+        task.delay(1, function()
             if Library then
                 option.callback(option.state)
             end
@@ -792,7 +792,7 @@ Library.createSlider = function(option, parent)
             self.callback(value)
         end
     end
-    delay(1, function()
+    task.delay(1, function()
         if Library then
             option:SetValue(option.value)
         end
@@ -1123,7 +1123,7 @@ Library.createList = function(option, parent)
             self.callback(self.value)
         end
     end
-    delay(1, function()
+    task.delay(1, function()
         if Library then
             option:SetValue(option.value)
         end
@@ -1267,7 +1267,7 @@ Library.createBox = function(option, parent)
             self.callback(value, enter)
         end
     end
-    delay(1, function()
+    task.delay(1, function()
         if Library then
             option:SetValue(option.value)
         end
@@ -1712,7 +1712,7 @@ Library.createColor = function(option, parent)
         option:SetTrans(option.trans)
     end
 
-    delay(1, function()
+    task.delay(1, function()
         if Library then
             option:SetColor(option.color)
         end
@@ -2649,7 +2649,7 @@ function Library:Init()
     end)
 
     if not getgenv().silent then
-        delay(1, function() self:Close() end)
+        task.delay(1, function() self:Close() end)
     end
 end
 
