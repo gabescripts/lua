@@ -778,7 +778,7 @@ Library.createSlider = function(option, parent)
     function option:SetValue(value, nocallback)
         if typeof(value) ~= "number" then value = 0 end
         value = Library.round(value, option.float)
-        value = math.clamp(value, self.min, self.max)
+        value = FormatNumber(value, self.min, self.max, option.float)
         if self.min >= 0 then
             option.fill:TweenSize(UDim2.new((value - self.min) / (self.max - self.min), 0, 1, 0), "Out", "Quad", 0.05, true)
         else
@@ -1898,18 +1898,6 @@ function Library:AddTab(title, pos)
                 return option
             end
 
-            --// Fixes Clamp Rounding Float Numbers Improperly
-            function FormatNumber(current, min, max, float)
-                local clamp = math.clamp(typeof(current) == "number" and current or min, min, max)
-                local decimals = select(2, math.modf(clamp))
-              
-                if decimals > 0 and string.len(string.split(clamp, ".")[2]) > 5 then
-                  local total = string.len(string.split(float, ".")[2])
-                  return string.format("%.".. total .."f", clamp, total)
-                end
-                return clamp
-            end
-
             function section:AddSlider(option)
                 option = typeof(option) == "table" and option or {}
                 option.section = self
@@ -2663,6 +2651,18 @@ function Library:Init()
     if not getgenv().silent then
         delay(1, function() self:Close() end)
     end
+end
+
+--// Fixes Clamp Rounding Float Numbers Improperly (0.570000000001 to 0.57)
+local function FormatNumber(current, min, max, float)
+    local clamp = math.clamp(typeof(current) == "number" and current or min, min, max)
+    local decimals = select(2, math.modf(clamp))
+    
+    if decimals > 0 and string.len(string.split(clamp, ".")[2]) > 5 then
+        local total = string.len(string.split(float, ".")[2])
+        return string.format("%.".. total .."f", clamp, total)
+    end
+    return clamp
 end
 
 local function promptLib()
