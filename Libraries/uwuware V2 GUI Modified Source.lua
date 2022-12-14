@@ -788,6 +788,9 @@ Library.createSlider = function(option, parent)
     end)
 
     function option:SetValue(value, nocallback)
+        print(Library.FormatNumber)
+        print(value)
+        
         if typeof(value) ~= "number" then value = 0 end
         value = Library.round(value, option.float)
         value = Library.FormatNumber(value, self.min, self.max, option.float)
