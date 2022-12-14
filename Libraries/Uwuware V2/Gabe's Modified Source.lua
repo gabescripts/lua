@@ -3,7 +3,7 @@ local TextService = game:GetService("TextService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
-local Library = {tabs = {}, draggable = true, flags = {}, title = "gabescripts", open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "gabescripts", fileext = ".json"}
+local Library = {tabs = {}, draggable = true, flags = {}, title = "<font color=\"rgb(0, 155, 0)\">gabe</font>scripts", open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "gabescripts", fileext = ".json"}
 
 --Locals
 local dragging, dragInput, dragStart, startPos, dragObject
@@ -2538,7 +2538,7 @@ function Library:Init()
         TextSize = 18,
         TextColor3 = Color3.new(1, 1, 1),
         TextXAlignment = Enum.TextXAlignment.Left,
-        Text = "<font color=\"rgb(0, 155, 0)\">gabe</font>scripts",
+        Text = self.title,
         Parent = self.main
     })
 
