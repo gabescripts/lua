@@ -221,6 +221,10 @@ Library.createDivider = function(option, parent)
         Parent = option.main
     })
 
+    function option:SetValue(text)
+        option.Text = text
+    end
+
     setmetatable(option, {__newindex = function(t, i, v)
         if i == "Text" then
             if v then
