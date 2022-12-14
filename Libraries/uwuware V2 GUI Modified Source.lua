@@ -247,7 +247,7 @@ Library.createToggle = function(option, parent)
     local tickboxOverlay
     if option.style then
         tickbox = Library:Create("ImageLabel", {
-            Position = UDim2.new(0, 6, 0, 4),
+            Position = UDim2.new(0, 6, 0, 6),
             Size = UDim2.new(0, 12, 0, 12),
             BackgroundTransparency = 1,
             Image = "rbxassetid://3570695787",
@@ -299,7 +299,7 @@ Library.createToggle = function(option, parent)
         table.insert(Library.theme, tickboxOverlay)
     else
         tickbox = Library:Create("Frame", {
-            Position = UDim2.new(0, 6, 0, 4),
+            Position = UDim2.new(0, 6, 0, 0),
             Size = UDim2.new(0, 12, 0, 12),
             BackgroundColor3 = Library.flags["Menu Accent Color"],
             BorderColor3 = Color3.new(),
@@ -349,7 +349,7 @@ Library.createToggle = function(option, parent)
     })
 
     option.title = Library:Create("TextLabel", {
-        Position = UDim2.new(0, 24, 0, 0),
+        Position = UDim2.new(0, 24, 0, -4),
         Size = UDim2.new(1, 0, 1, 0),
         BackgroundTransparency = 1,
         Text = option.text,
@@ -442,7 +442,7 @@ Library.createButton = function(option, parent)
 
     option.main = Library:Create("Frame", {
         LayoutOrder = option.position,
-        Size = UDim2.new(1, 0, 0, 28),
+        Size = UDim2.new(1, 0, 0, 24),
         BackgroundTransparency = 1,
         Parent = parent
     })
@@ -536,7 +536,7 @@ Library.createBind = function(option, parent)
     else
         option.main = option.main or Library:Create("Frame", {
             LayoutOrder = option.position,
-            Size = UDim2.new(1, 0, 0, 20),
+            Size = UDim2.new(1, 0, 0, 16),
             BackgroundTransparency = 1,
             Parent = parent
         })
@@ -643,18 +643,18 @@ Library.createSlider = function(option, parent)
 
     if option.sub then
         option.main = option:getMain()
-        option.main.Size = UDim2.new(1, 0, 0, 42)
+        option.main.Size = UDim2.new(1, 0, 0, 40)
     else
         option.main = Library:Create("Frame", {
             LayoutOrder = option.position,
-            Size = UDim2.new(1, 0, 0, option.textpos and 24 or 40),
+            Size = UDim2.new(1, 0, 0, option.textpos and 24 or 38),
             BackgroundTransparency = 1,
             Parent = parent
         })
     end
 
     option.slider = Library:Create("Frame", {
-        Position = UDim2.new(0, 6, 0, (option.sub and 22 or option.textpos and 4 or 20)),
+        Position = UDim2.new(0, 6, 0, (option.sub and 22 or option.textpos and 4 or 16)),
         Size = UDim2.new(1, -12, 0, 16),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         BorderColor3 = Color3.new(),
@@ -699,7 +699,7 @@ Library.createSlider = function(option, parent)
 
     option.title = Library:Create("TextBox", {
         Position = UDim2.new((option.sub or option.textpos) and 0.5 or 0, (option.sub or option.textpos) and 0 or 6, 0, 0),
-        Size = UDim2.new(0, 0, 0, (option.sub or option.textpos) and 14 or 18),
+        Size = UDim2.new(0, 0, 0, (option.sub or option.textpos) and 14 or 16),
         BackgroundTransparency = 1,
         Text = (option.text == "nil" and "" or option.text .. ": ") .. option.value .. option.suffix,
         TextSize = (option.sub or option.textpos) and 14 or 15,
@@ -817,11 +817,11 @@ Library.createList = function(option, parent)
 
     if option.sub then
         option.main = option:getMain()
-        option.main.Size = UDim2.new(1, 0, 0, 48)
+        option.main.Size = UDim2.new(1, 0, 0, 42)
     else
         option.main = Library:Create("Frame", {
             LayoutOrder = option.position,
-            Size = UDim2.new(1, 0, 0, option.text == "nil" and 30 or 48),
+            Size = UDim2.new(1, 0, 0, option.text == "nil" and 30 or 42),
             BackgroundTransparency = 1,
             Parent = parent
         })
@@ -850,7 +850,7 @@ Library.createList = function(option, parent)
     end
 
     option.listvalue = Library:Create("TextLabel", {
-        Position = UDim2.new(0, 6, 0, (option.text == "nil" and not option.sub) and 4 or 22),
+        Position = UDim2.new(0, 6, 0, (option.text == "nil" and not option.sub) and 4 or 18),
         Size = UDim2.new(1, -12, 0, 22),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         BorderColor3 = Color3.new(),
@@ -1158,14 +1158,14 @@ Library.createBox = function(option, parent)
 
     option.main = Library:Create("Frame", {
         LayoutOrder = option.position,
-        Size = UDim2.new(1, 0, 0, option.text == "nil" and 28 or 44),
+        Size = UDim2.new(1, 0, 0, option.text == "nil" and 28 or 40),
         BackgroundTransparency = 1,
         Parent = parent
     })
 
     if option.text ~= "nil" then
         option.title = Library:Create("TextLabel", {
-            Position = UDim2.new(0, 6, 0, 0),
+            Position = UDim2.new(0, 6, 0, 2),
             Size = UDim2.new(1, -12, 0, 18),
             BackgroundTransparency = 1,
             Text = option.text,
@@ -1216,7 +1216,7 @@ Library.createBox = function(option, parent)
     })
 
     local inputvalue = Library:Create("TextBox", {
-        Position = UDim2.new(0, 4, 0, 0),
+        Position = UDim2.new(0, 4, 0, 2),
         Size = UDim2.new(1, -4, 1, 0),
         BackgroundTransparency = 1,
         Text = "  " .. option.value,
@@ -1592,7 +1592,7 @@ Library.createColor = function(option, parent)
     else
         option.main = Library:Create("Frame", {
             LayoutOrder = option.position,
-            Size = UDim2.new(1, 0, 0, 20),
+            Size = UDim2.new(1, 0, 0, 16),
             BackgroundTransparency = 1,
             Parent = parent
         })
@@ -2656,7 +2656,6 @@ function Library:Init()
     local Old_new
     Old_new = hookmetamethod(game, "__newindex", function(t, i, v)
         if checkcaller() then return Old_new(t, i, v) end
-
 
         return Old_new(t, i, v)
     end)
