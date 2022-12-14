@@ -2698,8 +2698,7 @@ local function promptLib()
         Screen.Name = ScreenName
         Screen.ResetOnSpawn = false
         Screen.IgnoreGuiInset = true
-        sethiddenproperty(Screen,
-        "OnTopOfCoreBlur",true)
+        sethiddenproperty(Screen, "OnTopOfCoreBlur", true)
         Screen.RobloxLocked = true 
         Screen.Parent = CoreGui
         return Screen

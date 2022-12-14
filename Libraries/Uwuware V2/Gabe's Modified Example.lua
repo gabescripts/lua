@@ -51,9 +51,26 @@ LegitFifth:AddSlider({text = "Camera Kick", flag = "CameraKick", min = 5, max = 
 local BlatantTab = Library:AddTab("Blatant")
 local BlatantColunm1 = BlatantTab:AddColumn()
 local BlatantMain = BlatantColunm1:AddSection("Auto Wall")
-
 BlatantMain:AddDivider("Main");
 BlatantMain:AddToggle{text = "Enabled", flag = "AutoWallEnabled"}
+
+local BlatantColunm2 = BlatantTab:AddColumn()
+local PlayerSection = BlatantColunm2:AddSection("Player")
+local Players = (function()
+  local List = {}
+  for _, player in next, Services.Players:GetPlayers() do
+    table.insert(List, player.Name)
+  end
+  return List
+end)()
+PlayerSection:AddBox({text = "Enter Player's Name", callback = function(Text, Option)
+  local Target = Services.Get("Name", {Name = Text})
+  Option:SetValue(Target.Name)
+end})
+PlayerSection:AddList({text = "Player List", value = Players[1], values = Players, callback = function(Selected, Option)
+  print(Selected, Option)
+  --Option:Reset({"hi", "helli"})
+end})
 
 --// Visuals Section
 local VisualsTab = Library:AddTab("Visuals")
@@ -122,8 +139,8 @@ SettingSection:AddSlider({text = "Tile Size", min = 50, max = 500, value = 50, c
   if Library.main then Library.main.TileSize = UDim2.new(0, size, 0, size) end
 end})
 SettingSection:AddButton({text = "Discord", callback = function() end})
-ConfigSection:AddBox({text = "Config Name", skipflag = true})
-ConfigSection:AddList({text = "Configs", skipflag = true, value = "", flag = "Config List", values = Library:GetConfigs()})
+ConfigSection:AddBox({text = "Config Name"})
+ConfigSection:AddList({text = "Configs", value = "", flag = "Config List", values = Library:GetConfigs()})
 ConfigSection:AddButton({text = "Create", callback = function()
   Library:GetConfigs()
   writefile(Library.foldername .. "/" .. Library.flags["Config Name"] .. Library.fileext, "{}")
