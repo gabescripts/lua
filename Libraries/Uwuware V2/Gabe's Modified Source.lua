@@ -509,9 +509,17 @@ Library.createButton = function(option, parent)
         Parent = option.title
     })
 
+    function option:GetValue()
+        return option.title.Text
+    end
+
+    function option:SetValue(text)
+        option.title.Text = text
+    end
+
     option.title.InputBegan:connect(function(input)
         if input.UserInputType.Name == "MouseButton1" then
-            option.callback()
+            option.callback(option)
             if Library then
                 Library.flags[option.flag] = true
             end
