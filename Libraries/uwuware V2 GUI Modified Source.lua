@@ -3,7 +3,7 @@ local TextService = game:GetService("TextService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
-local Library = {design = getgenv().design == "kali" and "kali" or "uwuware", tabs = {}, draggable = true, flags = {}, title = "gabescripts", open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "gabescripts", fileext = ".txt"}
+local Library = {tabs = {}, draggable = true, flags = {}, title = "gabescripts", open = false, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "gabescripts", fileext = ".json"}
 
 --Locals
 local dragging, dragInput, dragStart, startPos, dragObject
@@ -29,8 +29,8 @@ end
 
 --From: https://devforum.roblox.com/t/how-to-create-a-simple-rainbow-effect-using-TweenService/221849/2
 local chromaColor
-spawn(function()
-    while Library and wait() do
+task.spawn(function()
+    while Library do task.wait()
         chromaColor = Color3.fromHSV(tick() % 6 / 6, 1, 1)
     end
 end)
@@ -87,18 +87,18 @@ function Library:LoadConfig(config)
             if option.hasInit then
                 if option.type ~= "button" and option.flag and not option.skipflag then
                     if option.type == "toggle" then
-                        spawn(function() option:SetState(Config[option.flag] == 1) end)
+                        task.spawn(function() option:SetState(Config[option.flag] == 1) end)
                     elseif option.type == "color" then
                         if Config[option.flag] then
-                            spawn(function() option:SetColor(Config[option.flag]) end)
+                            task.spawn(function() option:SetColor(Config[option.flag]) end)
                             if option.trans then
-                                spawn(function() option:SetTrans(Config[option.flag .. " Transparency"]) end)
+                                task.spawn(function() option:SetTrans(Config[option.flag .. " Transparency"]) end)
                             end
                         end
                     elseif option.type == "bind" then
-                        spawn(function() option:SetKey(Config[option.flag]) end)
+                        task.spawn(function() option:SetKey(Config[option.flag]) end)
                     else
-                        spawn(function() option:SetValue(Config[option.flag]) end)
+                        task.spawn(function() option:SetValue(Config[option.flag]) end)
                     end
                 end
             end
@@ -2409,9 +2409,8 @@ function Library:AddWarning(warning)
         warning.main.Visible = true
         warning.message.Text = warning.text
 
-        repeat wait()
-        until answer ~= nil
-        spawn(warning.Close)
+        repeat task.wait() until answer ~= nil
+        task.spawn(warning.Close)
         Library.warning = nil
         return answer
     end
@@ -2588,9 +2587,8 @@ function Library:Init()
         end
     end
 
-    spawn(function()
-        while Library do
-            wait(1)
+    task.spawn(function()
+        while Library do task.wait(1)
             local Configs = self:GetConfigs()
             for _, config in next, Configs do
                 if not table.find(self.options["Config List"].values, config) then
