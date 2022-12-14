@@ -582,7 +582,7 @@ Library.createBind = function(option, parent)
                 else
                     Library.flags[option.flag] = true
                     if Loop then Loop:Disconnect() option.callback(true, 0) end
-                    Loop = Library:AddConnection(runService.RenderStepped, function(step)
+                    Loop = Library:AddConnection(RunService.RenderStepped, function(step)
                         if not UserInputService:GetFocusedTextBox() then
                             option.callback(nil, step)
                         end
@@ -2440,7 +2440,7 @@ function Library:Init()
     self.hasInit = true
 
     self.base = Library:Create("ScreenGui", {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
-    if runService:IsStudio() then
+    if RunService:IsStudio() then
         self.base.Parent = script.Parent.Parent
     elseif syn then
         pcall(function() self.base.RobloxLocked = true end)
