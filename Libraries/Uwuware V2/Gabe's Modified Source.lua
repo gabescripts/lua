@@ -877,7 +877,7 @@ Library.createList = function(option, parent)
     end
 
     option.listvalue = Library:Create("TextLabel", {
-        Position = UDim2.new(0, 6, 0, (option.text == "nil" and not option.sub) and 4 or 20),
+        Position = UDim2.new(0, 6, 0, (option.text == "nil" and not option.sub) and 4 or 17),
         Size = UDim2.new(1, -12, 0, 22),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         BorderColor3 = Color3.new(),
