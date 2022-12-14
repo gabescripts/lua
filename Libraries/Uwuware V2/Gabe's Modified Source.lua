@@ -179,6 +179,10 @@ Library.createLabel = function(option, parent)
         Parent = parent
     })
 
+    function option:SetValue(text)
+        option.Text = option.text
+    end
+
     setmetatable(option, {__newindex = function(t, i, v)
         if i == "Text" then
             option.main.Text = tostring(v)
