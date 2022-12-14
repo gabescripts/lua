@@ -1229,7 +1229,7 @@ Library.createBox = function(option, parent, callback)
         Parent = option.holder
     })
 
-    inuptvalue.FocusLost:connect(callback)
+    inputvalue.FocusLost:connect(callback)
     inputvalue.FocusLost:connect(function(enter)
         option.holder.BorderColor3 = Color3.new()
         option:SetValue(inputvalue.Text, enter)
