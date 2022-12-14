@@ -81,7 +81,7 @@ end
 
 function Library:LoadConfig(config)
     if table.find(self:GetConfigs(), config) then
-        local Read, Config = pcall(function() return game:GetService"HttpService":JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext)) end)
+        local Read, Config = pcall(function() return game:GetService("HttpService"):JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext)) end)
         Config = Read and Config or {}
         for _, option in next, self.options do
             if option.hasInit then
@@ -109,7 +109,7 @@ end
 function Library:SaveConfig(config)
     local Config = {}
     if table.find(self:GetConfigs(), config) then
-        Config = game:GetService"HttpService":JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext))
+        Config = game:GetService("HttpService"):JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext))
     end
     for _, option in next, self.options do
         if option.type ~= "button" and option.flag and not option.skipflag then
@@ -131,7 +131,7 @@ function Library:SaveConfig(config)
             end
         end
     end
-    writefile(self.foldername .. "/" .. config .. self.fileext, game:GetService"HttpService":JSONEncode(Config))
+    writefile(self.foldername .. "/" .. config .. self.fileext, game:GetService("HttpService"):JSONEncode(Config))
 end
 
 function Library:GetConfigs()
@@ -2444,7 +2444,7 @@ function Library:Init()
         self.base.Parent = script.Parent.Parent
     elseif syn then
         pcall(function() self.base.RobloxLocked = true end)
-        self.base.Parent = game:GetService"CoreGui"
+        self.base.Parent = game:GetService("CoreGui")
     end
 
     self.main = self:Create("ImageButton", {
