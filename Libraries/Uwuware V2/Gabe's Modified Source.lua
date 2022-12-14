@@ -180,7 +180,7 @@ Library.createLabel = function(option, parent)
     })
 
     function option:SetValue(text)
-        option.Text = option.text
+        option.Text = text
     end
 
     setmetatable(option, {__newindex = function(t, i, v)
