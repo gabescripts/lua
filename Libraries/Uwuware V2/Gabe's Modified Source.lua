@@ -674,14 +674,14 @@ Library.createSlider = function(option, parent)
     else
         option.main = Library:Create("Frame", {
             LayoutOrder = option.position,
-            Size = UDim2.new(1, 0, 0, option.textpos and 24 or 38),
+            Size = UDim2.new(1, 0, 0, option.textpos and 24 or 36),
             BackgroundTransparency = 1,
             Parent = parent
         })
     end
 
     option.slider = Library:Create("Frame", {
-        Position = UDim2.new(0, 6, 0, (option.sub and 22 or option.textpos and 4 or 20)),
+        Position = UDim2.new(0, 6, 0, (option.sub and 22 or option.textpos and 4 or 16)),
         Size = UDim2.new(1, -12, 0, 16),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         BorderColor3 = Color3.new(),
@@ -1194,33 +1194,33 @@ Library.createBox = function(option, parent)
     option.hasInit = true
 
     option.main = Library:Create("Frame", {
-        LayoutOrder = option.position,
-        Size = UDim2.new(1, 0, 0, option.text == "nil" and 28 or 40),
-        BackgroundTransparency = 1,
-        Parent = parent
-    })
+      LayoutOrder = option.position,
+      Size = UDim2.new(1, 0, 0, option.text == "nil" and 28 or 40),
+      BackgroundTransparency = 1,
+      Parent = parent
+  })
 
-    if option.text ~= "nil" then
-        option.title = Library:Create("TextLabel", {
-            Position = UDim2.new(0, 6, 0, 2),
-            Size = UDim2.new(1, -12, 0, 18),
-            BackgroundTransparency = 1,
-            Text = option.text,
-            TextSize = 15,
-            Font = Enum.Font.Code,
-            TextColor3 = Color3.fromRGB(210, 210, 210),
-            TextXAlignment = Enum.TextXAlignment.Left,
-            Parent = option.main
-        })
-    end
+  if option.text ~= "nil" then
+      option.title = Library:Create("TextLabel", {
+          Position = UDim2.new(0, 6, 0, -2),
+          Size = UDim2.new(1, -12, 0, 18),
+          BackgroundTransparency = 1,
+          Text = option.text,
+          TextSize = 15,
+          Font = Enum.Font.Code,
+          TextColor3 = Color3.fromRGB(210, 210, 210),
+          TextXAlignment = Enum.TextXAlignment.Left,
+          Parent = option.main
+      })
+  end
 
-    option.holder = Library:Create("Frame", {
-        Position = UDim2.new(0, 6, 0, option.text == "nil" and 4 or 20),
-        Size = UDim2.new(1, -12, 0, 20),
-        BackgroundColor3 = Color3.fromRGB(50, 50, 50),
-        BorderColor3 = Color3.new(),
-        Parent = option.main
-    })
+  option.holder = Library:Create("Frame", {
+      Position = UDim2.new(0, 6, 0, option.text == "nil" and 4 or 16),
+      Size = UDim2.new(1, -12, 0, 20),
+      BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+      BorderColor3 = Color3.new(),
+      Parent = option.main
+  })
 
     Library:Create("ImageLabel", {
         Size = UDim2.new(1, 0, 1, 0),
@@ -1253,7 +1253,7 @@ Library.createBox = function(option, parent)
     })
 
     local inputvalue = Library:Create("TextBox", {
-        Position = UDim2.new(0, 4, 0, 2),
+        Position = UDim2.new(0, 4, 0, 0),
         Size = UDim2.new(1, -4, 1, 0),
         BackgroundTransparency = 1,
         Text = "  " .. option.value,
