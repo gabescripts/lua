@@ -2514,7 +2514,7 @@ function Library:Init()
         AutoButtonColor = false,
         Position = UDim2.new(0, 100, 0, 46),
         Size = UDim2.new(0, 500, 0, 600),
-        BackgroundColor3 = Color3.fromRGB(20, 20, 20),
+        BackgroundColor3 = Color3.fromRGB(15, 15, 15),
         BorderColor3 = Color3.new(),
         ScaleType = Enum.ScaleType.Tile,
         Modal = true,
