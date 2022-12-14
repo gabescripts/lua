@@ -179,6 +179,10 @@ Library.createLabel = function(option, parent)
         Parent = parent
     })
 
+    function option:GetValue()
+        return option.Text
+    end
+    
     function option:SetValue(text)
         option.Text = text
     end
@@ -220,6 +224,10 @@ Library.createDivider = function(option, parent)
         TextXAlignment = Enum.TextXAlignment.Center,
         Parent = option.main
     })
+
+    function option:GetValue()
+        return option.Text
+    end
 
     function option:SetValue(text)
         option.Text = text
