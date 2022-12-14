@@ -582,7 +582,7 @@ Library.createBind = function(option, parent)
     end
 
     local bindinput = Library:Create(option.sub and "TextButton" or "TextLabel", {
-        Position = UDim2.new(1, -6 - (option.subpos or 0), 0, option.sub and 2 or 3),
+        Position = UDim2.new(1, -6 - (option.subpos or 0), 0, option.sub and 2 or 0),
         SizeConstraint = Enum.SizeConstraint.RelativeYY,
         BackgroundColor3 = Color3.fromRGB(30, 30, 30),
         BorderSizePixel = 0,
