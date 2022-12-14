@@ -382,7 +382,6 @@ Library.createToggle = function(option, parent)
         if input.UserInputType.Name == "MouseButton1" then
             local Bool = not option.state
             option:SetState(Bool)
-            option.callback(Bool, option)
         end
         if input.UserInputType.Name == "MouseMovement" then
             if not Library.warning and not Library.slider then
@@ -438,7 +437,7 @@ Library.createToggle = function(option, parent)
             tickboxOverlay.BackgroundTransparency = state and 1 or 0
         end
         if not nocallback then
-            self.callback(state)
+            self.callback(state, self)
         end
     end
 
