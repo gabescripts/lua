@@ -27,6 +27,18 @@ Library.round = function(num, bracket)
     end
 end
 
+--// Fixes Clamp Rounding Float Numbers Improperly (0.570000000001 to 0.57)
+Library.FormatNumber(current, min, max, float)
+    local clamp = math.clamp(typeof(current) == "number" and current or min, min, max)
+    local decimals = select(2, math.modf(clamp))
+    
+    if decimals > 0 and string.len(string.split(clamp, ".")[2]) > 5 then
+        local total = string.len(string.split(float, ".")[2])
+        return string.format("%.".. total .."f", clamp, total)
+    end
+    return clamp
+end
+
 --From: https://devforum.roblox.com/t/how-to-create-a-simple-rainbow-effect-using-TweenService/221849/2
 local chromaColor
 task.spawn(function()
@@ -778,7 +790,7 @@ Library.createSlider = function(option, parent)
     function option:SetValue(value, nocallback)
         if typeof(value) ~= "number" then value = 0 end
         value = Library.round(value, option.float)
-        value = FormatNumber(value, self.min, self.max, option.float)
+        value = Library.FormatNumber(value, self.min, self.max, option.float)
         print("CALLED")
         if self.min >= 0 then
             option.fill:TweenSize(UDim2.new((value - self.min) / (self.max - self.min), 0, 1, 0), "Out", "Quad", 0.05, true)
@@ -1907,7 +1919,7 @@ function Library:AddTab(title, pos)
                 option.max = typeof(option.max) == "number" and option.max or 0
                 option.callback = typeof(option.callback) == "function" and option.callback or function() end
                 option.float = typeof(option.value) == "number" and option.float or 1
-                option.value = option.min < 0 and 0 or math.clamp(typeof(option.value) == "number" and option.value or option.min, option.min, option.max)
+                option.value = option.min < 0 and 0 or Library.FormatNumber(typeof(option.value) == "number" and option.value or option.min, option.min, option.max, option.float)
                 option.suffix = option.suffix and tostring(option.suffix) or ""
                 option.textpos = option.textpos == 2
                 option.type = "slider"
@@ -2652,18 +2664,6 @@ function Library:Init()
     if not getgenv().silent then
         task.delay(1, function() self:Close() end)
     end
-end
-
---// Fixes Clamp Rounding Float Numbers Improperly (0.570000000001 to 0.57)
-local function FormatNumber(current, min, max, float)
-    local clamp = math.clamp(typeof(current) == "number" and current or min, min, max)
-    local decimals = select(2, math.modf(clamp))
-    
-    if decimals > 0 and string.len(string.split(clamp, ".")[2]) > 5 then
-        local total = string.len(string.split(float, ".")[2])
-        return string.format("%.".. total .."f", clamp, total)
-    end
-    return clamp
 end
 
 local function promptLib()
