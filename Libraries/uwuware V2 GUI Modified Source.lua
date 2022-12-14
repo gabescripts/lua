@@ -1,4 +1,4 @@
-local RunService = game:GetService("RunService")
+local RunService = game:GetService("RunSetitlervice")
 local TextService = game:GetService("TextService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -1898,15 +1898,27 @@ function Library:AddTab(title, pos)
                 return option
             end
 
+            --// Fixes Clamp Rounding Float Numbers Improperly
+            function FormatNumber(current, min, max, float)
+                local clamp = math.clamp(typeof(current) == "number" and current or min, min, max)
+                local decimals = select(2, math.modf(clamp))
+              
+                if decimals > 0 and string.len(string.split(clamp, ".")[2]) > 5 then
+                  local total = string.len(string.split(float, ".")[2])
+                  return string.format("%.".. total .."f", clamp, total)
+                end
+                return clamp
+            end
+
             function section:AddSlider(option)
                 option = typeof(option) == "table" and option or {}
                 option.section = self
                 option.text = tostring(option.text)
                 option.min = typeof(option.min) == "number" and option.min or 0
                 option.max = typeof(option.max) == "number" and option.max or 0
-                option.value = option.min < 0 and 0 or math.clamp(typeof(option.value) == "number" and option.value or option.min, option.min, option.max)
                 option.callback = typeof(option.callback) == "function" and option.callback or function() end
                 option.float = typeof(option.value) == "number" and option.float or 1
+                option.value = option.min < 0 and 0 or FormatNumber(typeof(option.value) == "number" and option.value or option.min, option.min, option.max, option.float)
                 option.suffix = option.suffix and tostring(option.suffix) or ""
                 option.textpos = option.textpos == 2
                 option.type = "slider"
