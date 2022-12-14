@@ -1153,7 +1153,7 @@ Library.createList = function(option, parent)
     return option
 end
 
-Library.createBox = function(option, parent)
+Library.createBox = function(option, parent, callback)
     option.hasInit = true
 
     option.main = Library:Create("Frame", {
@@ -1229,6 +1229,7 @@ Library.createBox = function(option, parent)
         Parent = option.holder
     })
 
+    inuptvalue.FocusLost:connect(callback)
     inputvalue.FocusLost:connect(function(enter)
         option.holder.BorderColor3 = Color3.new()
         option:SetValue(inputvalue.Text, enter)
@@ -2021,7 +2022,7 @@ function Library:AddTab(title, pos)
                 return option
             end
 
-            function section:AddBox(option)
+            function section:AddBox(option, callback)
                 option = typeof(option) == "table" and option or {}
                 option.section = self
                 option.text = tostring(option.text)
@@ -2037,7 +2038,7 @@ function Library:AddTab(title, pos)
                 Library.options[option.flag] = option
 
                 if Library.hasInit and self.hasInit then
-                    Library.createBox(option, self.content)
+                    Library.createBox(option, self.content, callback or function() end)
                 else
                     option.Init = Library.createBox
                 end
