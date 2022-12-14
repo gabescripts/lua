@@ -654,7 +654,7 @@ Library.createSlider = function(option, parent)
     end
 
     option.slider = Library:Create("Frame", {
-        Position = UDim2.new(0, 6, 0, (option.sub and 22 or option.textpos and 4 or 16)),
+        Position = UDim2.new(0, 6, 0, (option.sub and 22 or option.textpos and 4 or 20)),
         Size = UDim2.new(1, -12, 0, 16),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         BorderColor3 = Color3.new(),
@@ -850,7 +850,7 @@ Library.createList = function(option, parent)
     end
 
     option.listvalue = Library:Create("TextLabel", {
-        Position = UDim2.new(0, 6, 0, (option.text == "nil" and not option.sub) and 4 or 18),
+        Position = UDim2.new(0, 6, 0, (option.text == "nil" and not option.sub) and 4 or 20),
         Size = UDim2.new(1, -12, 0, 22),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         BorderColor3 = Color3.new(),
