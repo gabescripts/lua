@@ -779,6 +779,7 @@ Library.createSlider = function(option, parent)
         if typeof(value) ~= "number" then value = 0 end
         value = Library.round(value, option.float)
         value = FormatNumber(value, self.min, self.max, option.float)
+        print("CALLED")
         if self.min >= 0 then
             option.fill:TweenSize(UDim2.new((value - self.min) / (self.max - self.min), 0, 1, 0), "Out", "Quad", 0.05, true)
         else
