@@ -2532,7 +2532,7 @@ function Library:Init()
     })
 
     self:Create("TextLabel", {
-        Position = UDim2.new(0, 6, 0, -1),
+        Position = UDim2.new(0, 6, 0, 1),
         Size = UDim2.new(0, 0, 0, 20),
         BackgroundTransparency = 1,
         Font = Enum.Font.Code,
