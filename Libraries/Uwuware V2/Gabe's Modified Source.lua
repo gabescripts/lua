@@ -380,7 +380,9 @@ Library.createToggle = function(option, parent)
 
     option.interest.InputBegan:connect(function(input)
         if input.UserInputType.Name == "MouseButton1" then
-            option:SetState(not option.state)
+            local Bool = not option.state
+            option:SetState(Bool)
+            option.callback(Bool, option)
         end
         if input.UserInputType.Name == "MouseMovement" then
             if not Library.warning and not Library.slider then
@@ -1831,6 +1833,7 @@ function Library:AddTab(title, pos)
                 option.canInit = (option.canInit ~= nil and option.canInit) or true
                 option.tip = option.tip and tostring(option.tip)
                 option.style = option.style == 2
+                option.callback = option.callback or function() end
                 Library.flags[option.flag] = option.state
                 table.insert(self.options, option)
                 Library.options[option.flag] = option
