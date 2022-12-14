@@ -1919,7 +1919,7 @@ function Library:AddTab(title, pos)
                 option.max = typeof(option.max) == "number" and option.max or 0
                 option.callback = typeof(option.callback) == "function" and option.callback or function() end
                 option.float = typeof(option.value) == "number" and option.float or 1
-                option.value = option.min < 0 and 0 or Library.FormatNumber(typeof(option.value) == "number" and option.value or option.min, option.min, option.max, option.float)
+                option.value = option.min < 0 and 0 or math.clamp(typeof(option.value) == "number" and option.value or option.min, option.min, option.max)
                 option.suffix = option.suffix and tostring(option.suffix) or ""
                 option.textpos = option.textpos == 2
                 option.type = "slider"
