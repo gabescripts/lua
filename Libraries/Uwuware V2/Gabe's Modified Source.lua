@@ -168,13 +168,14 @@ Library.createLabel = function(option, parent)
     option.main = Library:Create("TextLabel", {
         LayoutOrder = option.position,
         Position = UDim2.new(0, 6, 0, 0),
-        Size = UDim2.new(1, -12, 0, 24),
+        Size = UDim2.new(1, -16, 0, 24),
         BackgroundTransparency = 1,
         TextSize = 15,
         Font = Enum.Font.Code,
         TextColor3 = Color3.new(1, 1, 1),
         TextXAlignment = Enum.TextXAlignment.Left,
-        TextYAlignment = Enum.TextYAlignment.Top,
+        TextYAlignment = Enum.TextYAlignment.Bottom,
+        RichText = true,
         TextWrapped = true,
         Parent = parent
     })
@@ -220,6 +221,7 @@ Library.createDivider = function(option, parent)
         BorderSizePixel = 0,
         TextColor3 =  Color3.new(1, 1, 1),
         TextSize = 15,
+        RichText = true,
         Font = Enum.Font.Code,
         TextXAlignment = Enum.TextXAlignment.Center,
         Parent = option.main
@@ -2745,5 +2747,4 @@ local function promptLib()
         return Prompt,Screen
     end
 end
-
 return Library
