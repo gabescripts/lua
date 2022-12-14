@@ -47,13 +47,13 @@ LegitFifth:AddToggle({text = "Enabled", flag = "RecoilControlEnabled"})
 LegitFifth:AddSlider({text = "Model Kick", flag = "ModelKick", min = 5, max = 100, value = 100, suffix = "%"})
 LegitFifth:AddSlider({text = "Camera Kick", flag = "CameraKick", min = 5, max = 100, value = 100, suffix = "%"})
 
---// Rage Section
-local RageTab = Library:AddTab("Blatant"); 
-local RageColunm1 = RageTab:AddColumn();
-local RageMain = RageColunm1:AddSection("Auto Wall")
+--// Blatant Section
+local BlatantTab = Library:AddTab("Blatant"); 
+local BlatantColunm1 = BlatantTab:AddColumn();
+local BlatantMain = BlatantColunm1:AddSection("Auto Wall")
 
-RageMain:AddDivider("Main");
-RageMain:AddToggle{text = "Enabled", flag = "AutoWallEnabled"}
+BlatantMain:AddDivider("Main");
+BlatantMain:AddToggle{text = "Enabled", flag = "AutoWallEnabled"}
 
 --// Visuals Section
 local VisualsTab = Library:AddTab("Visuals")
