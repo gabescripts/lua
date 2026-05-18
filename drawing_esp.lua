@@ -402,4 +402,4 @@ function CreateDraw.new(Settings, Services)
   return self
 end
 
-return CreateDraw, TotalRaw
+return CreateDraw, TotalDraw
