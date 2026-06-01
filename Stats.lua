@@ -27,29 +27,38 @@ function Stats:UpdateValue(key, new_val)
     self.value[key] = new_val
 end
 
--- Use this for graph values (like Earned, Kills)
 function Stats:UpdateGraph(key, current_val)
     local graph = self._graphs[key]
     if not graph then return end
-    
-    -- Always update the 'current' tracker
-    graph.current = current_val
-    
-    local history = graph.history
-    local last_entry = history[#history]
-    
-    -- Check for delta: If no previous entry exists, OR the value has changed
-    if not last_entry or last_entry.val ~= current_val then
-        table.insert(history, {
-            val = current_val,
-            time = os.time()
-        })
+
+    -- First run initialization
+    if graph.last_abs == nil then
+        graph.last_abs = current_val
+        graph.session_total = 0
+    else
+        -- Calculate the Delta (Change)
+        local delta = current_val - graph.last_abs
         
-        -- Enforce graph limit to prevent memory leaks
-        if #history > self.graph_limit then
-            table.remove(history, 1)
+        -- Only update the graph if money/kills actually changed!
+        if delta ~= 0 then
+            table.insert(graph.history, {
+                val = delta,
+                time = os.time()
+            })
+            
+            -- Update trackers
+            graph.last_abs = current_val
+            graph.session_total = graph.session_total + delta
+
+            -- Prevent memory leaks
+            if #graph.history > self.graph_limit then
+                table.remove(graph.history, 1)
+            end
         end
     end
+
+    -- The main display number is now the total amount earned THIS session
+    graph.current = graph.session_total or 0
 end
 
 -- Call this right before you send your telemetry payload
