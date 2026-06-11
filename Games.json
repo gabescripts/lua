@@ -10,6 +10,17 @@
         "Gun Mods": ["Inf Ammo", "No Recoil", "No Spread", "Full Auto", "No Fire Rate"],
         "Utility": ["Auto Heal", "Auto Items", "Auto Buy", "Auto Sell", "Modded Car", "Teleports", "Player Flying"]
       }
+    },
+    "Fling Things and People": {
+      "placeId": "6961824067",
+      "date": "1780323525",
+      "features": {
+        "Farming": ["Live Stats", "Auto Farm", "Insta-Kill Boss"],
+        "Aimbot": ["Silent Aim", "Trigger Bot"],
+        "Visuals": ["Player ESP", "Better GPS", "Custom Time"],
+        "Grab Mods": ["Inf Ammo", "No Recoil", "No Spread", "Full Auto", "No Fire Rate"],
+        "Utility": ["Auto Heal", "Auto Items", "Auto Buy", "Auto Sell", "Modded Car", "Teleports", "Player Flying"]
+      }
     }
   },
   "WIP": {
@@ -18,7 +29,6 @@
     "REFLEX - Aim Trainer": {"placeId": "5880351207"},
     "The Rake REMASTERED": {"placeId": "2413927524"},
     "Spray Paint!": {"placeId": "5991163185"},
-    "Fling Things and People": {"placeId": "6961824067"},
     "Apeirophobia": {"placeId": "10277607801"},
     "Jujutsu Shenanigans": {"placeId": "9391468976"},
     "TTK Testing": {"placeId": "120189115846709"}
