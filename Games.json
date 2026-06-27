@@ -15,11 +15,13 @@
       "placeId": "6961824067",
       "date": "1780323525",
       "features": {
-        "Farming": ["Live Stats", "Auto Farm", "Insta-Kill Boss"],
-        "Aimbot": ["Silent Aim", "Trigger Bot"],
-        "Visuals": ["Player ESP", "Better GPS", "Custom Time"],
-        "Grab Mods": ["Inf Ammo", "No Recoil", "No Spread", "Full Auto", "No Fire Rate"],
-        "Utility": ["Auto Heal", "Auto Items", "Auto Buy", "Auto Sell", "Modded Car", "Teleports", "Player Flying"]
+        "Farming": ["Live Stats", "Auto Spin", "Auto Buy"],
+        "Aimbot": ["Silent Aim", "Smooth Aim"],
+        "Visuals": ["Player ESP", "Custom Time"],
+        "Specials": ["Lock Eyes", "Grab Attacker", "Grab Bomber", "Grab Friend's Attacker"],
+        "Grab Mods": ["Perspective Grab", "Massless Grab", "Freeze Grab", "Delete Grab", "Fling Grab", "Fire Grab", "Kill Grab", "Spam Grab", "Custom Grab"],
+        "Anti-Effects": ["Anti-Grab", "Anti-Bomb", "Anti-Fling", "Anti-Burn", "Anti-Shroom", "Anti-Poison", "Anti-Paint"],
+        "Utility": ["Claim House", "Auto Save House", "Death Position", "No Clipping", "Mute Screams", "Mute Jukeboxes"]
       }
     }
   },
