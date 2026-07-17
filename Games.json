@@ -28,10 +28,9 @@
       "placeId": "2653064683",
       "date": "1784302074",
       "features": {
-        "Solving": ["Live Stats", "Auto Solve", "Save Words", "Steal Words"],
-        "Customization": ["Human Variance", "Word Priority", "No Dashes or Apostrophes", "Word Length"],
-        "Datasets": ["Oxford", "Word Bomb", "Scrabble", "YAWL", "TWL06", "Datamuse"],
-        "Utility": ["Prompt Data", "Assist Players", "Edit Saved Words"]
+        "Main Features": ["Live Stats", "Auto Solve", "Auto Join", "Instant Solve", "Show Solutions", "Filter Words", "Assist Players", "Save/Block Words"],
+        "Smart Features": ["Steal Words", "Human Variance", "Word Priority", "Prompt Analysis", "Learn Opponents", "View Attrition"],
+        "Datasets": ["Oxford 460k", "Word Bomb 286k", "Scrabble 268k", "YAWL 264k", "TWL06 179k", "Datamuse API"],
       }
     }
   },
