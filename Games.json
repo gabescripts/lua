@@ -30,7 +30,7 @@
       "features": {
         "Main Features": ["Live Stats", "Auto Solve", "Auto Join", "Instant Solve", "Show Solutions", "Filter Words", "Assist Players", "Save/Block Words"],
         "Smart Features": ["Steal Words", "Human Variance", "Word Priority", "Prompt Analysis", "Learn Opponents", "View Attrition"],
-        "Datasets": ["Oxford 460k", "Word Bomb 286k", "Scrabble 268k", "YAWL 264k", "TWL06 179k", "Datamuse API"],
+        "Datasets": ["Oxford 460k", "Word Bomb 286k", "Scrabble 268k", "YAWL 264k", "TWL06 179k", "Datamuse API"]
       }
     }
   },
