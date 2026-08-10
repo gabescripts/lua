@@ -3,6 +3,7 @@
     "Aniphobia": {
       "placeId": "6788434697", 
       "date": "1780323525",
+      "maintenance": false,
       "features": {
         "Farming": ["Live Stats", "Auto Farm", "Insta-Kill Boss"],
         "Aimbot": ["Silent Aim", "Trigger Bot"],
@@ -14,6 +15,7 @@
     "Fling Things and People": {
       "placeId": "6961824067",
       "date": "1780323525",
+      "maintenance": false,
       "features": {
         "Farming": ["Live Stats", "Auto Spin", "Auto Buy"],
         "Aimbot": ["Silent Aim", "Smooth Aim"],
@@ -27,6 +29,7 @@
     "Word Bomb": {
       "placeId": "2653064683",
       "date": "1784302074",
+      "maintenance": false,
       "features": {
         "Main Features": ["Live Stats", "Auto Solve", "Auto Join", "Instant Solve", "Show Solutions", "Filter Words", "Assist Players", "Save/Block Words"],
         "Smart Features": ["Steal Words", "Human Variance", "Word Priority", "Prompt Analysis", "Learn Opponents", "View Attrition"],
@@ -36,6 +39,7 @@
     "The Rake REMASTERED": {
       "placeId": "2413927524",
       "date": "1784302074",
+      "maintenance": false,
       "features": {
         "Main Features": ["Silent Aim", "Infinite Stamina", "No Jumpscares", "No Downed", "Instant Items", "Radar GUI", "Custom Day/Night"],
         "Smart Features": ["Stamina ESP", "Item ESP", "Get Best Crate Loot", "Third Person", "Item Teleporter"]
