@@ -36,6 +36,15 @@
         "Datasets": ["Oxford 460k", "Word Bomb 286k", "Scrabble 268k", "YAWL 264k", "TWL06 179k", "Datamuse API"]
       }
     },
+    "REFLEX - Aim Trainer": {
+      "placeId": "5880351207",
+      "date": "1784302074",
+      "maintenance": false,
+      "features": {
+        "Main Features": ["Silent Aim", "Smooth Aim", "Aim Bot", "Shoot All Targets", "View Rank", "Customize"],
+        "Smart Features": ["Auto Play"],
+      }
+    },
     "The Rake REMASTERED": {
       "placeId": "2413927524",
       "date": "1784302074",
@@ -49,7 +58,6 @@
   "WIP": {
     "Michael's Zombies": {"placeId": "8054462345"},
     "Project Delta": {"placeId": "7336302630"},
-    "REFLEX - Aim Trainer": {"placeId": "5880351207"},
     "Driving Simulator": {"placeId": "4410049285"},
     "Booga Booga": {"placeId": "11729688377"},
     "Death Penalty": {"placeId": "15654981113"},
