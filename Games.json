@@ -41,8 +41,8 @@
       "date": "1784302074",
       "maintenance": false,
       "features": {
-        "Main Features": ["Silent Aim", "Smooth Aim", "Aim Bot", "Shoot All Targets", "View Rank", "Customize"],
-        "Smart Features": ["Auto Play"]
+        "Main Features": ["Silent Aim", "Smooth Aim", "Aim Bot", "Custom Arena", "Custom Crosshair", "Weapon Mods", "Spectate Bypass"],
+        "Smart Features": ["Unlock Ultimate", "Auto Play", "Best Score", "Player ESP"]
       }
     },
     "The Rake REMASTERED": {
