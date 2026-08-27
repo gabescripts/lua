@@ -49,7 +49,7 @@
       "placeId": "5880351207",
       "date": "1784302074",
       "maintenance": false,
-      "autofarm": {"Summit Farm", "Gem and Coin Farm"}
+      "autofarm": ["Summit Farm", "Gem and Coin Farm"]
     },
     "The Rake REMASTERED": {
       "placeId": "76427490154192",
