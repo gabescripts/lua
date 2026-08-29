@@ -56,7 +56,7 @@
       "date": "1784302074",
       "maintenance": false,
       "features": {
-        "Main Features": ["Silent Aim", "Weapon Mods", "Trigger Bot", "Instant Items", "Custom Crosshair", "Kill All"],
+        "Main Features": ["Silent Aim", "Weapon Mods", "Trigger Bot", "Any Attachments", "Custom Crosshair", "Kill All"],
         "Smart Features": ["Player ESP", "Enemy ESP", "Quick Heal"]
       }
     },
