@@ -51,6 +51,15 @@
       "maintenance": false,
       "autofarm": ["Summit Farm", "Gem and Coin Farm"]
     },
+    "CQB Hell": {
+      "placeId": "103490024394750",
+      "date": "1784302074",
+      "maintenance": false,
+      "features": {
+        "Main Features": ["Silent Aim", "Weapon Mods", "Trigger Bot", "Instant Items", "Custom Crosshair", "Kill All"],
+        "Smart Features": ["Player ESP", "Enemy ESP", "Quick Heal"]
+      }
+    },
     "The Rake REMASTERED": {
       "placeId": "2413927524",
       "date": "1784302074",
