@@ -52,8 +52,8 @@
       "autofarm": ["Summit Farm", "Gem and Coin Farm"]
     },
     "CQB Hell": {
-      "placeId": "103490024394750",
-      "relatedIds": ["110911776337576", "86363272070536"],
+      "placeId": "111267397030523",
+      "relatedIds": ["98689921952741"],
       "date": "1784302074",
       "maintenance": false,
       "features": {
